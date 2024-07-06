@@ -3516,6 +3516,14 @@ img.u-pull-left {
     margin-bottom : var(--vspace-0_125);
 }
 
+.timeline__meta2 {
+    font-family   : var(--font-1);
+    font-weight   : 400;
+    font-size     : calc(var(--text-size) * 0.9);
+    margin-top    : 0;
+    margin-bottom : var(--vspace-0_125);
+}
+
 .timeline__timeframe {
     font-size      : var(--text-xs);
     line-height    : var(--vspace-0_75);
