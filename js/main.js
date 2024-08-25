@@ -256,25 +256,75 @@
                 document.querySelector(modalbox),
                 {
                     onShow: function(instance) {
-                        //detect Escape key press
+                        // Detect Escape key press
                         document.addEventListener("keydown", function(event) {
                             event = event || window.event;
                             if (event.keyCode === 27) {
                                 instance.close();
+                                document.body.style.overflow = '';
                             }
                         });
+    
+                        // Close modal when clicking outside the modal content
+                        instance.element().addEventListener("click", function(event) {
+                            if (event.target === instance.element()) {
+                                instance.close();
+                                document.body.style.overflow = '';
+                            }
+                        });
+    
+                        // Close modal when clicking the close button
+                        const closeButton = instance.element().querySelector('.close-button');
+                        if (closeButton) {
+                            closeButton.addEventListener("click", function() {
+                                instance.close();
+                                document.body.style.overflow = '';
+                            });
+                        }
                     }
                 }
             )
             modals.push(instance);
         });
 
+        //     let instance = basicLightbox.create(
+        //         document.querySelector(modalbox),
+        //         {
+        //             onShow: function(instance) {
+        //                 //detect Escape key press
+        //                 document.addEventListener("keydown", function(event) {
+        //                     event = event || window.event;
+        //                     if (event.keyCode === 27) {
+        //                         instance.close();
+                                
+        //                     }
+        //                 });
+        //             }
+        //         }
+        //     )
+        //     modals.push(instance);
+        // });
+
         folioLinks.forEach(function(link, index) {
             link.addEventListener("click", function(event) {
                 event.preventDefault();
                 modals[index].show();
+                document.body.style.overflow = 'hidden';
             });
         });
+
+        // Listen for the 'closeModal' message from the iframe
+    window.addEventListener('message', function(event) {
+        if (event.data === 'closeModal') {
+            // Close the currently open modal
+            const openModal = modals.find(modal => modal.visible());
+            if (openModal) {
+                openModal.close();
+                document.body.style.overflow = '';
+            }
+        }
+    });
+
 
     };  // end ssLightbox
 
@@ -360,5 +410,7 @@
         ssMoveTo();
 
     })();
+    
+
 
 })(document.documentElement);

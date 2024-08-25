@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content="pandoc" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=yes"
+		/>
+		<title>f90296bd37f1403fb5a18cc00bf0e15e</title>
+		<style>
+			html {
+				line-height: 1.5;
+				font-family: Georgia, serif;
+				font-size: 20px;
+				color: #1a1a1a;
+				background-color: #fdfdfd;
+			}
+			body {
+				margin: 0 auto;
+				max-width: 36em;
+				padding-left: 50px;
+				padding-right: 50px;
+				padding-top: 50px;
+				padding-bottom: 50px;
+				hyphens: auto;
+				overflow-wrap: break-word;
+				text-rendering: optimizeLegibility;
+				font-kerning: normal;
+			}
+			@media (max-width: 600px) {
+				body {
+					font-size: 0.9em;
+					padding: 1em;
+				}
+				h1 {
+					font-size: 1.8em;
+				}
+			}
+			@media print {
+				body {
+					background-color: transparent;
+					color: black;
+					font-size: 12pt;
+				}
+				p,
+				h2,
+				h3 {
+					orphans: 3;
+					widows: 3;
+				}
+				h2,
+				h3,
+				h4 {
+					page-break-after: avoid;
+				}
+			}
+			p {
+				margin: 1em 0;
+			}
+			a {
+				color: #1a1a1a;
+			}
+			a:visited {
+				color: #1a1a1a;
+			}
+			img {
+				max-width: 100%;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin-top: 1.4em;
+			}
+			h5,
+			h6 {
+				font-size: 1em;
+				font-style: italic;
+			}
+			h6 {
+				font-weight: normal;
+			}
+			ol,
+			ul {
+				padding-left: 1.7em;
+				margin-top: 1em;
+			}
+			li > ol,
+			li > ul {
+				margin-top: 0;
+			}
+			blockquote {
+				margin: 1em 0 1em 1.7em;
+				padding-left: 1em;
+				border-left: 2px solid #e6e6e6;
+				color: #606060;
+			}
+			code {
+				font-family: Menlo, Monaco, "Lucida Console", Consolas, monospace;
+				font-size: 85%;
+				margin: 0;
+			}
+			pre {
+				margin: 1em 0;
+				overflow: auto;
+			}
+			pre code {
+				padding: 0;
+				overflow: visible;
+				overflow-wrap: normal;
+			}
+			.sourceCode {
+				background-color: transparent;
+				overflow: visible;
+			}
+			hr {
+				background-color: #1a1a1a;
+				border: none;
+				height: 1px;
+				margin: 1em 0;
+			}
+			table {
+				margin: 1em 0;
+				border-collapse: collapse;
+				width: 100%;
+				overflow-x: auto;
+				display: block;
+				font-variant-numeric: lining-nums tabular-nums;
+			}
+			table caption {
+				margin-bottom: 0.75em;
+			}
+			tbody {
+				margin-top: 0.5em;
+				border-top: 1px solid #1a1a1a;
+				border-bottom: 1px solid #1a1a1a;
+			}
+			th {
+				border-top: 1px solid #1a1a1a;
+				padding: 0.25em 0.5em 0.25em 0.5em;
+			}
+			td {
+				padding: 0.125em 0.5em 0.25em 0.5em;
+			}
+			header {
+				margin-bottom: 4em;
+				text-align: center;
+			}
+			#TOC li {
+				list-style: none;
+			}
+			#TOC ul {
+				padding-left: 1.3em;
+			}
+			#TOC > ul {
+				padding-left: 0;
+			}
+			#TOC a:not(:hover) {
+				text-decoration: none;
+			}
+			code {
+				white-space: pre-wrap;
+			}
+			span.smallcaps {
+				font-variant: small-caps;
+			}
+			div.columns {
+				display: flex;
+				gap: min(4vw, 1.5em);
+			}
+			div.column {
+				flex: auto;
+				overflow-x: auto;
+			}
+			div.hanging-indent {
+				margin-left: 1.5em;
+				text-indent: -1.5em;
+			}
+			ul.task-list {
+				list-style: none;
+			}
+			ul.task-list li input[type="checkbox"] {
+				width: 0.8em;
+				margin: 0 0.8em 0.2em -1.6em;
+				vertical-align: middle;
+			}
+		</style>
+		<script
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+			type="text/javascript"
+		></script>
+		<!--[if lt IE 9]>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="flushright">
+			<p><strong>Introduction</strong></p>
+		</div>
+		<h1 id="introduction">Introduction:</h1>
+		<p>
+			There is an escalating electronic waste crisis fueled by the short
+			lifespan of conventional electronic products and the need for sustainable
+			and eco-friendly alternatives has over the years become extremely crucial.
+			Organic electronics is a class of electronics that mostly comprise of
+			materials that organic in nature as they provide several benefits in terms
+			of being eco-friendly and non-toxic in terms of human interactions. They
+			present characteristics such as flexibility, low cost, and scalability.
+		</p>
+		<p>
+			This project embarks on the optimization of fabrication processes for
+			Organic Field-Effect Transistors (OFETs). Major objectives of the project
+			include improving electrical performance of the OFETs by varying
+			pre-decided factors that may affect the performance. Further integrate
+			nature-oriented materials and biodegradability.
+		</p>
+		<p>
+			This project undertakes a parameter optimization study on a previous paper
+			introducing a novel techniques for creating crystals with certain
+			alignment using Directional Solvent Vapor Annealing(DSVA). In DSVA for
+			crystal alignment in solution-processed organic semiconductors is
+			proposed. The drop-cast technique is enhanced using this postprocessing
+			scheme of the solvent vapor annealing with additional alignment of the
+			crystals.
+		</p>
+		<h2 id="organic-field-effect-transistors">
+			Organic Field Effect Transistors
+		</h2>
+		<h3 id="structures">Structures</h3>
+		<p>
+			Organic thin film transistors (OTFTs) are active electronic components
+			that can be printed and used in analog, digital, and mixed-signal
+			circuits. They can also be used as stand-alone sensors where the change in
+			electrical current can be mapped to the physical change being sensed .
+			OTFTs are composed of three main components: contacts (source (S), drain
+			(D), and gate (G)), a dielectric thin film, and an organic semiconducting
+			thin film (OSC). Contacts are typically made of silver, gold, copper, or
+			ITO. However, there are no standards or trends for dielectrics or organic
+			semiconducting material due to the many options and combinations
+			available. The components of an OTFT can be ordered into four different
+			structures: Bottom Gate Top Contact (BGTC), Bottom Gate Bottom Contact
+			(BGBC), Top Gate Bottom Contact (TGBC), and Top Gate Top Contact (TGTC).
+			Both BGTC and TGBC are considered staggered transistors due to their
+			structure, while BGBC and TGTC are considered coplanar transistors for the
+			same reason . Figure 1 shows the four different structures of OTFTs.
+		</p>
+		<figure>
+			<img
+				src="bgbc bgtc.png"
+				id="fig:bgbc_bgtc"
+				style="width: 80%"
+				alt="Organic thin film transistor structures; a) Bottom gate bottom contact; b) Bottom gate top contact;c) Top gate bottom contact; d) Top gate top contact."
+			/>
+			<figcaption aria-hidden="true">
+				Organic thin film transistor structures; a) Bottom gate bottom contact;
+				b) Bottom gate top contact;c) Top gate bottom contact; d) Top gate top
+				contact.
+			</figcaption>
+		</figure>
+		<h3 id="operating-principles">Operating Principles</h3>
+		<p>
+			In both Organic thin-film transistors(OTFTs) and traditional silicon
+			metal-oxide semiconductor field0effect transistors(MOSFETs), the operating
+			principles share similarities. OTFTs the same as MOSFETs involve source
+			and drain electrodes directly contacting the semiconductor with the gate
+			contact insulated from the the semiconductor by a dielectric film.
+			Applying a voltage bias between the gate and source electrodes (VGS) leads
+			to carrier accumulation near the semiconductor-dielectric interface,
+			creating a channel for current flow when a voltage bias is applied between
+			the drain and source (VDS). The minimum VGS required for channel creation
+			is called the threshold voltage (Vth).
+		</p>
+		<p>
+			The primary difference between OTFTs and MOSFETs lies in the channel
+			formation process. MOSFETs undergo an inversion process, resulting in
+			charge carriers in the channel opposite to those in the semiconductor
+			bulk. In OTFTs, the charge carriers in the channel are same as those in
+			the organic semiconductor (OSC) bulk.
+		</p>
+		<p>
+			Despite the differences in the type of charge transport in organic and
+			inorganic semiconductors, OTFTs exhibit similar regions of operation to
+			MOSFETs, including cut-off, linear, and saturation. When
+			<span class="math inline">\(|V_{GS}|\)</span> is lower than
+			<span class="math inline">\(|V_{th}|\)</span>, the transistor is in
+			cut-off, with no charge accumulation or channel formation, and thus, no
+			current conduction. The linear region starts when
+			<span class="math inline">\(|V_{GS}| \geq |V_{th}|\)</span> and
+			<span class="math inline">\((|V_{DS}| &lt; |V_{GS} - V_{th}|)\)</span>,
+			behaving like a variable resistor. In the saturation region, reached at
+			<span class="math inline">\(|V_{DS}| \geq |V_{GS}| - |V_{th}|\)</span>,
+			the channel undergoes pinch-off, and the current saturates following
+			Equation (1-2), where <span class="math inline">\(\mu_{Sat}\)</span> is
+			carrier charge mobility in the saturation regime.
+		</p>
+		<p>
+			<span class="math display"
+				>\[I_{DS} = \mu_{Lin} C_{g} \frac{W}{L} \left( V_{GS} - V_{th} -
+				\frac{V_{DS}}{2} \right) V_{DS}\]</span
+			>
+		</p>
+		<p>
+			<span class="math display"
+				>\[I_{DS} = \frac{1}{2} \mu_{Sat} C_g W \left( V_{GS} - V_{th}
+				\right)^2\]</span
+			>
+		</p>
+		<figure>
+			<img
+				src="image2.png"
+				id="fig:bgbc_bgtc"
+				style="width: 80%"
+				alt="Operating regimes of a transistor. a) Cut-off; b) Linear; c) Saturation; d) IDS-VDS curve of some transistors indicating linear and saturation operating regions; e) I-V of a transistor indicating cut-off and operation regimes. Figures (d) and (e) from reference"
+			/>
+			<figcaption aria-hidden="true">
+				Operating regimes of a transistor. a) Cut-off; b) Linear; c) Saturation;
+				d) IDS-VDS curve of some transistors indicating linear and saturation
+				operating regions; e) I-V of a transistor indicating cut-off and
+				operation regimes. Figures (d) and (e) from reference
+			</figcaption>
+		</figure>
+		<p>
+			The fundamental operation of an OTFT involves utilizing the capacitor
+			principle, generating an electric field in the dielectric in response to a
+			gate-source voltage (<span class="math inline">\(V_{GS}\)</span>). This
+			voltage creates an accumulation of holes or electrons by aligning the
+			Fermi level of the metal electrodes with the highest occupied molecular
+			orbital (HOMO) or lowest unoccupied molecular orbital (LUMO) energy levels
+			of p-type or n-type organic semiconductors (OSCs). The energy diagram
+			shows this concept, with a positive
+			<span class="math inline">\(V_{GS}\)</span> resulting in insufficient
+			electron injection and a small leakage current, while a reversed gate
+			voltage injects holes and forms a positively charged channel, classifying
+			the OSC as p-type.
+		</p>
+		<figure>
+			<img
+				src="homolumo.png"
+				id="fig:bgbc_bgtc"
+				style="width: 30%"
+				alt="Energy band diagram for a typical combination of gold (S/D) and pentacene (OSC). Figure from reference"
+			/>
+			<figcaption aria-hidden="true">
+				Energy band diagram for a typical combination of gold (S/D) and
+				pentacene (OSC). Figure from reference
+			</figcaption>
+		</figure>
+		<h3 id="characteristics">Characteristics:</h3>
+		<p>
+			Several key parameters determine the performance of an organic transistor,
+			and these include field-dependent mobility (<span class="math inline"
+				>\(\mu\)</span
+			>), threshold voltage (<span class="math inline">\(V_{th}\)</span>),
+			on/off current ratio (<span class="math inline">\(I_{ON}/I_{OFF}\)</span
+			>), and sub-threshold slope (SS). Various factors, such as device
+			geometry, material choices in different layers, grain size of the organic
+			semiconductor thin film, structural dimensions, and semiconductor
+			morphology, can impact these parameters. Achieving superior performance in
+			organic transistors requires high mobility, low threshold voltage, a large
+			on/off current ratio, and a steep sub-threshold slope, all of which are
+			essential for optimal functionality.
+		</p>
+		<ul>
+			<li>
+				<p>
+					<strong>Mobility (<span class="math inline">\(\mu\)</span>):</strong>
+					Device mobility measures the efficiency of charge carrier movement
+					along the conducting path, representing the average drift velocity of
+					charge carriers per unit electric field. High mobility is particularly
+					crucial for achieving a high on-current, a fundamental requirement for
+					superior performance.
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong
+						>Threshold Voltage (<span class="math inline">\(V_{th}\)</span
+						>):</strong
+					>
+					The threshold voltage is a critical parameter determining the
+					switching behavior of a device. It signifies the minimum gate voltage
+					required to accumulate charge carriers at the interface between the
+					organic semiconductor and the insulator, forming a conductive path
+					between the source and the drain.
+					<span class="math inline">\(V_{th}\)</span> significantly influences
+					the overall operation of an organic transistor.
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong
+						>On/Off Current Ratio (<span class="math inline"
+							>\(I_{ON}/I_{OFF}\)</span
+						>):</strong
+					>
+					The on/off current ratio, or current ratio in accumulation mode to
+					depletion mode, is a crucial parameter for evaluating organic
+					transistor performance. A high dielectric constant of the insulator, a
+					thin semiconductor layer, and a low doping concentration contribute to
+					creating a significant difference between on and off current. This
+					parameter measures the device’s ability to turn on and off, serving as
+					an important metric for assessing its suitability for various
+					applications.
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong>Sub-threshold Slope (SS):</strong> Sub-threshold slope (SS)
+					gauges the change in drain current on a logarithmic scale concerning
+					the change in gate biasing. It reflects impurity concentration,
+					interface state, and trap density, influencing the switching behavior
+					of a transistor. SS is a crucial parameter for evaluating the
+					efficiency of a transistor as a switch, determined by the ratio of the
+					change in gate biasing to the change in drain current on a logarithmic
+					scale. It plays a key role in determining the device’s suitability for
+					various applications.
+				</p>
+			</li>
+		</ul>
+		<h2 id="directional-solvent-vapor-annealing-dsva">
+			Directional Solvent Vapor Annealing (DSVA)
+		</h2>
+		<h3 id="experimental-setup">Experimental Setup</h3>
+		<p>
+			The DSVA setup was specially designed and built to perform both deposition
+			and postprocessing. The schematic diagram in Figure 4 illustrates the
+			setup, comprising three zones: fusion, directive, and interaction. The
+			fusion zone features a glass vessel filled with a solvent at the bottom,
+			heated by a hot plate. The vessel has two inlets for solvent and carrier
+			gas. At the top of the fusion zone, there is a chamber with an inlet for
+			pushing the gas-vapor mixture into the directive zone. This is where the
+			solvent vapor is generated, mixed with the carrier gas, and propelled into
+			the directive zone.
+		</p>
+		<p>
+			The directive zone is a hollow rectangular chamber with very low height,
+			providing high directionality to the gas-vapor mixture. The mixture flows
+			continuously from the fusion zone to the interaction zone. In the
+			interaction zone, there is a long and narrow tube with a stage that can be
+			adjusted to place the samples at different positions. The interaction
+			between the gas-vapor mixture and the substrate with the solution takes
+			place in this zone. The tube has a removable door at the end for inserting
+			or removing samples, and a small vent at the top for gas discharge. Figure
+			5 presents the cross-sectional view of the tube, indicating different
+			parameters. <span class="math inline">\(h_{c,i}\)</span> is the height of
+			the tube ceiling from the stage floor,
+			<span class="math inline">\(d_{s,i}\)</span> is the distance of the sample
+			midpoint from the start of the tube, and
+			<span class="math inline">\(f_{t,i}\)</span> is the flow rate of the
+			carrier gas.
+		</p>
+		<figure>
+			<img
+				src="dsva1.png"
+				id="fig:bgbc_bgtc"
+				style="width: 80%"
+				alt="Design of a customized experimental setup to perform DSVA. The setup has three main zones: fusion, directive, and interaction zone."
+			/>
+			<figcaption aria-hidden="true">
+				Design of a customized experimental setup to perform DSVA. The setup has
+				three main zones: fusion, directive, and interaction zone.
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="dsva2.png"
+				id="fig:bgbc_bgtc"
+				style="width: 60%"
+				alt="Depiction of various parameters for DSVA. h_{c,i}, d_{s,i}, and f_{t,i} denote the height of the tube ceiling with respect to the floor of the stage, the distance of the midpoint of the sample from the beginning of the interaction tube, and the flow rate of the carrier gas, respectively."
+			/>
+			<figcaption aria-hidden="true">
+				Depiction of various parameters for DSVA.
+				<span class="math inline">\(h_{c,i}\)</span>,
+				<span class="math inline">\(d_{s,i}\)</span>, and
+				<span class="math inline">\(f_{t,i}\)</span> denote the height of the
+				tube ceiling with respect to the floor of the stage, the distance of the
+				midpoint of the sample from the beginning of the interaction tube, and
+				the flow rate of the carrier gas, respectively.
+			</figcaption>
+		</figure>
+		<h3 id="comparison-of-various-solution-processing-techniques">
+			Comparison of Various Solution-Processing Techniques
+		</h3>
+		<p>Table shown in Figure 6</p>
+		<figure>
+			<img
+				src="Table.png"
+				style="width: 100%"
+				alt="Table with Comparison of Different Solution-Processing Techniques"
+			/>
+			<figcaption aria-hidden="true">
+				Table with Comparison of Different Solution-Processing Techniques
+			</figcaption>
+		</figure>
+		<h3 id="conclusions-of-the-initial-study">
+			Conclusions of the Initial Study
+		</h3>
+		<p>
+			DSVA is a proposed solution processing technique for organic
+			semiconductors that combines SVA and gas flow. DSVA improves the molecular
+			self-assembly and alignment of the semiconductor films by using SVA and
+			gas−vapor mixture, respectively. The degree of crystallinity and alignment
+			of the semiconducting ribbons depends on the flow rate of the carrier gas
+			and the position of the substrate in the interaction tube. The optimal
+			conditions for DSVA produce a semiconducting layer with well-aligned and
+			interconnected ribbons. Such a layer leads to a high performance of the
+			OFETs, suggesting that DSVA is a versatile technique for solution
+			processing of organic semiconductors.
+		</p>
+		<div class="flushright">
+			<p><strong>Background and Problem Statement</strong></p>
+		</div>
+		<h1 id="problem-statement">Problem Statement</h1>
+		<p>
+			The escalating global issue of electronic waste demands a shift towards
+			sustainable alternatives. While high performance organic electronics
+			particularly Organic Field-Effect Transistors(OFETs) show promise, their
+			performance is still not at par with traditional inorganic electronics.
+			The task that needs to be undertaken is that we need to seamlessly
+			integrate high performance and eco-friendliness while navigating through
+			complex procedures such as material selection and fabrication processes
+			and produce OFETs that are air-stable and biodegradable in nature.
+		</p>
+		<p>
+			One Technique that is used to create OFETs is drop casting the organic
+			semiconductor on your substrates however even though this technique has
+			shown promise but this technique doesn’t take into account the need for
+			alignment of crystals or the elongation of crystals. Hence another novel
+			technique can be used post drop-casting that uses Directional Solvent
+			Vapor Annealing or DSVA. However, since DSVA is a novel technique and
+			there is lack of research on several parameters that may or may not affect
+			the techniques’ outcomes. So, there is a need for a parameter optimization
+			study that varies several relevant parameters and reports the outcomes.
+		</p>
+		<h1 id="background">Background</h1>
+		<p>
+			Organic semiconductor solution-processing methods are gaining attention
+			for their cheaper production costs and eco-friendly nature, aiming to
+			compete with complex vacuum processing techniques. Factors influencing the
+			performance of solution-processed devices include crystallinity, molecular
+			packing, morphology, and orientation of crystalline domains. The main
+			challenge in solution-processed semiconductors arises from
+			three-dimensional crystal growth, leading to inconsistent charge transport
+			and device behavior.
+		</p>
+		<p>
+			Common methods like drop casting and spin coating present a trade-off
+			between molecular settlement time and crystallinity, impacting uniformity
+			and consistency in device performance. Alternative processing and
+			post-processing methods, such as zone casting, dip coating, and inkjet
+			printing, have been explored to control molecular self-assembly and
+			enhance crystalline order. Incorporating post-processing methods like
+			solvent vapor annealing (SVA) has proven advantageous for improving
+			self-organization and crystalline order in semiconductor films.
+		</p>
+		<p>
+			The proposed directional solvent vapor annealing (DSVA) integrates
+			deposition and post-processing, aiming to achieve highly aligned and
+			crystalline films for high-performance organic semiconductor devices. DSVA
+			involves the flow of a carrier gas and solvent vapors in a specific
+			direction and proximity to the substrate, promoting macroscopic alignment
+			and microscopic molecular self-assembly in crystalline domains.
+		</p>
+		<p>
+			Parameters like carrier gas flow rate, substrate proximity, and position
+			in the interaction tube critically affect overall crystallinity,
+			alignment, and device performance. DSVA application in organic
+			field-effect transistors (OFETs) fabrication demonstrated a maximum
+			mobility of
+			<span class="math inline"
+				>\(0.86 \, \text{cm}^2/\text{V} \cdot \text{s}\)</span
+			>
+			and a high current on-off ratio of
+			<span class="math inline">\(10^6\)</span>, showcasing its potential for
+			achieving high-performance devices in solution-processed organic
+			semiconductors.
+		</p>
+		<div class="flushright">
+			<p><strong>Work done, Results and Discussions</strong></p>
+		</div>
+		<h1 id="work-done">Work Done</h1>
+		<h2 id="experimental-setup-1">Experimental Setup</h2>
+		<p>
+			The experimental setup was in dysfunctional state at the start of the
+			project and hence required tune-up and testing for any malfunction that
+			may have been caused due to the apparatus being unused for a long time.
+		</p>
+		<p>
+			Finally, There were some issues regarding the cleaning of the apparatus as
+			the glass vessel that rests on a hot plate has no big enough opening for a
+			proper cleaning and the adhesive did not interact well with Iso-propyl
+			alcohol and seem to disintegrate on contact. So another way was employed
+			as toluene was used under a fume hood and then heated and vapours were
+			allowed to flow from inside the glass vessel to the rest of the apparatus
+			hence cleaning the entire apparatus. These are pictures of the final
+			apparatus.
+		</p>
+		<figure>
+			<img
+				src="setup.png"
+				style="width: 100%"
+				alt="Apparatus After Cleaning and Testing"
+			/>
+			<figcaption aria-hidden="true">
+				Apparatus After Cleaning and Testing
+			</figcaption>
+		</figure>
+		<h3 id="metal-bracket">Metal Bracket</h3>
+		<p>
+			A metal Bracket was required to handle the weight of the gas pipe that was
+			bringing the end of the apparatus down and straining the glass pipes
+			directly glued to the apparatus.
+		</p>
+		<figure>
+			<img
+				src="metal Brackett.png"
+				style="width: 100%"
+				alt="Apparatus After Cleaning and Testing"
+			/>
+			<figcaption aria-hidden="true">
+				Apparatus After Cleaning and Testing
+			</figcaption>
+		</figure>
+		<h2 id="finalization-of-parameters">Finalization of Parameters</h2>
+		<p>
+			A lot of parameters were discussed and pondered upon, finally coming up
+			with a list of parameters that will be used in the parameter optimization
+			study. The following parameters will be used:
+		</p>
+		<ul>
+			<li>
+				<p>Height of the tube ceiling with respect to the floor of the stage</p>
+			</li>
+			<li>
+				<p>
+					Distance of the midpoint of the sample from the beginning of the
+					interaction tube
+				</p>
+			</li>
+			<li><p>Flow rate of the carrier gas</p></li>
+			<li>
+				<p>
+					Concentration of the gas-vapor mixture in different regions of the
+					interaction tube
+				</p>
+			</li>
+			<li><p>Incline of the sample</p></li>
+			<li><p>Substrate material</p></li>
+			<li><p>Mixing ratio</p></li>
+		</ul>
+		<h2 id="some-preliminary-experiments">Some Preliminary Experiments</h2>
+		<p>
+			There were some basic questions that arose during the project and some
+			basic preliminary experiments without much experimental setup were
+			designed to answer those questions.
+		</p>
+		<p>
+			There was one experiment where 2 samples of ITO-PET substrate were taken
+			after proper cleaning process and then through Atomic Layer Deposition
+			(ALD) Hafnium was deposited on only one of them and then
+			6,13-Bis(triisopropylsilylethynyl)pentacene also known as TIPS-Pentacene
+			was drop-casted on both those samples.
+		</p>
+		<p>
+			Then to simulate something like DSVA, Nitrogen gas was passed over the
+			samples and to prevent direct flow of the gas over the samples a simple
+			cardboard piece was placed. The inferences from the experiment included
+			that the only the flow of gas without solvent vapors was not responsible
+			for the crystal formation and Hafnium provided better crystallinity as
+			compared to sample without Hafnium.
+		</p>
+		<p>
+			Another Experiment was conducted and this experiment included two samples
+			based on ITO-PET and one was coated Polystyrene(PS) and then
+			TIPS-Pentacene was drop casted on it. And another sample which was
+			drop-casted with a pre mixed TIPS-Pentacene and Polystyrene solution in
+			Toluene. The sample that was coated with Polystyrene and then
+			TIPS-Pentacene showed better crystallinity however the electrical
+			characteristics were not tested. In an ideal scenario the TIPS-Pentacene
+			and PS mix should have shown phase separation during crystal formation.
+		</p>
+		<h2 id="experiment-design-and-experiment">
+			Experiment Design and Experiment
+		</h2>
+		<p>
+			As Part of the Preliminary experimental design prior to a full factorial
+			Design of Experiments method to find out factors that seem to make a
+			difference for our process. Several Factors like Mixing Ratio,Substrate
+			Material,Incline of the sample were varied and then the experiment was run
+			as described above with bare minimum air flow and Toluene as Solvent
+			heated to 120 °C inside the fume hood. The experiment was run Thrice for
+			an hour each time and the film formed was observed under a microscope.
+			Since it is already known to us height of tube ceiling with respect to the
+			floor of the stage,Distance of the midpoint of the sample from the
+			beginning of the interaction tube, Flow rate of the carrier gas have
+			effect on the film of the sample so these were made constant at 6 mm ,
+			(1.5 inches,4 inches, 6 inches), 0.5L/min.
+		</p>
+		<figure>
+			<img
+				src="doe table.png"
+				id="fig:bgbc_bgtc"
+				alt="Table containing preliminary experiment design "
+			/>
+			<figcaption aria-hidden="true">
+				Table containing preliminary experiment design
+			</figcaption>
+		</figure>
+		<h3 id="substrate-preparation">Substrate Preparation</h3>
+		<p>
+			Two types of substrates were used in the experiment ITO-PET and Silicon
+			Wafer. Both of them were cleaned using Iso-propyl Alcohol,Acetone and
+			Distilled Water. After which ITO-PET had a deposition of Hafnium using
+			Atomic Layer Deposition and Silicon Wafer was submerged in 5 mM
+			Octadecyltrichlorosilane(OTS) in Toluene for 24 hours.
+		</p>
+		<h3 id="solution-preparation">Solution Preparation</h3>
+		<p>
+			A 0.5 wt% solution of TIPS-pentacene in toluene (5 mg/mL) was prepared by
+			stirring for 3 h at 65 °C. Along with 0.5 wt% solution of Polystyrene in
+			Toluene (5 mg/ml) in a similar manner. The were mixed in various ratios
+			such 100% (Pure TIPS-Pentacene) , 25% and 75% .
+		</p>
+		<h3 id="experiment">Experiment</h3>
+		<p>
+			The prepared solutions were drop casted on the samples according to a
+			prior experimental design mapping various combination to make it easy to
+			identify factor contributions.Then Nitrogen was run through the apparatus.
+		</p>
+		<figure>
+			<img
+				src="Images/setup.jpg"
+				id="fig:bgbc_bgtc"
+				style="width: 60%"
+				alt="Working Setup During Experiment"
+			/>
+			<figcaption aria-hidden="true">
+				Working Setup During Experiment
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="silicon before dropcast.png"
+				id="fig:bgbc_bgtc"
+				style="width: 60%"
+				alt="Silicon wafers on stage before drop casting "
+			/>
+			<figcaption aria-hidden="true">
+				Silicon wafers on stage before drop casting
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="silicon inside.jpg"
+				id="fig:bgbc_bgtc"
+				style="width: 60%"
+				alt="Silicon Wafers inside the apparatus after Drop Casting"
+			/>
+			<figcaption aria-hidden="true">
+				Silicon Wafers inside the apparatus after Drop Casting
+			</figcaption>
+		</figure>
+		<h3 id="source-drain-deposition">Source-Drain Deposition</h3>
+		<p>
+			<span class="math inline">\(\sim\)</span> 100-nm-thick top gold (Au) was
+			deposited through a metal shadow mask to pattern source and drain, using
+			vacuum thermal evaporation with base pressure on the order of 10−6 torr.
+		</p>
+		<h3 id="characterization">Characterization</h3>
+		<p>
+			Electrical Characterization was done on the samples using a Probe Station.
+			And relevant data was extracted showcasing the samples’ input output
+			characteristics in various Regions of Operation.
+		</p>
+		<figure>
+			<img
+				src="probe station.jpg"
+				id="fig:bgbc_bgtc"
+				style="width: 50%"
+				alt="Probe Station"
+			/>
+			<figcaption aria-hidden="true">Probe Station</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="2007-01-01-05-05-26.png"
+				id="fig:bgbc_bgtc"
+				style="width: 50%"
+				alt="Probe Station pins interacting with the Au electrodes on the Silicon Wafer sample"
+			/>
+			<figcaption aria-hidden="true">
+				Probe Station pins interacting with the Au electrodes on the Silicon
+				Wafer sample
+			</figcaption>
+		</figure>
+		<h2 id="results-and-observations">Results and Observations</h2>
+		<h3 id="film-images">Film Images</h3>
+		<p>Figures 15-17</p>
+		<figure>
+			<img
+				src="Images/ito.png"
+				id="fig:bgbc_bgtc"
+				alt="Films for ITO-PET substrate with (a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches (b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS) at 6 inches"
+			/>
+			<figcaption aria-hidden="true">
+				Films for ITO-PET substrate with (a)75%(TIPS-Pentacene:Polystyrene(PS)
+				at 1.5 inches (b)75%(TIPS-Pentacene:PS) at 4 inches (c)
+				25%(TIPS-Pentacene:PS) at 6 inches
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="Images/silicon.png"
+				id="fig:bgbc_bgtc"
+				alt="Films for Silicon Wafer substrate with (a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches (b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS) at 6 inches"
+			/>
+			<figcaption aria-hidden="true">
+				Films for Silicon Wafer substrate with
+				(a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches
+				(b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS) at 6
+				inches
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="Images/pure tips.png"
+				id="fig:bgbc_bgtc"
+				style="width: 33%"
+				alt="Film on ITO-PET substrate with 100% TIPS Solution at 5 inches"
+			/>
+			<figcaption aria-hidden="true">
+				Film on ITO-PET substrate with 100% TIPS Solution at 5 inches
+			</figcaption>
+		</figure>
+		<h3 id="plots">Plots</h3>
+		<p>Figures 18-21</p>
+		<figure>
+			<img
+				src="Images/ito-pet id vg.png"
+				id="fig:bgbc_bgtc"
+				alt="Drain Current vs Gate Voltage(ITO-PET substrate)"
+			/>
+			<figcaption aria-hidden="true">
+				Drain Current vs Gate Voltage(ITO-PET substrate)
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="Images/id vs vg sat.png"
+				id="fig:bgbc_bgtc"
+				alt="Drain Current vs Gate Voltage(Silicon Wafer substrate)"
+			/>
+			<figcaption aria-hidden="true">
+				Drain Current vs Gate Voltage(Silicon Wafer substrate)
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="Images/iv 1st.png"
+				id="fig:bgbc_bgtc"
+				alt="Drain Current vs Drain Voltage for different Gate Voltage(Silicon Wafer substrate)"
+			/>
+			<figcaption aria-hidden="true">
+				Drain Current vs Drain Voltage for different Gate Voltage(Silicon Wafer
+				substrate)
+			</figcaption>
+		</figure>
+		<figure>
+			<img
+				src="Images/iv2.png"
+				id="fig:bgbc_bgtc"
+				alt="Drain Current vs Drain Voltage for different Gate Voltage(Silicon Wafer substrate)"
+			/>
+			<figcaption aria-hidden="true">
+				Drain Current vs Drain Voltage for different Gate Voltage(Silicon Wafer
+				substrate)
+			</figcaption>
+		</figure>
+		<div class="flushright">
+			<p><strong>Conclusion and Future Work</strong></p>
+		</div>
+		<h1 id="conclusions">Conclusions</h1>
+		<ol>
+			<li>
+				<p>
+					The substrate ITO-PET isn’t hydrophilic enough to hold our solution in
+					a stable form in front of the Nitrogen gas. So, some more surface
+					treatment needs to be done to the ITO-PET for better attraction
+					towards the solution.The non-uniform film cause short circuits.
+				</p>
+			</li>
+			<li>
+				<p>
+					The Factor Mixing Ratio has an effect on the quality of the film
+					higher concentration provided better quality film with uniform
+					crystals and in the end relatively better performance.
+				</p>
+			</li>
+			<li>
+				<p>
+					The Factor Incline didn’t have a positive effect instead resulted in
+					accumulation of the solution at the bottom end not being able to form
+					a film on the the sample apart from the very bottom
+				</p>
+			</li>
+			<li>
+				<p>
+					The Factor Substrate Material Does have an effect as the interactions
+					with solution and hydrophobicity of every substrate is different and
+					surface treatments also make a difference.
+				</p>
+			</li>
+			<li>
+				<p>
+					In respect to prior testing with the apparatus in the original paper
+					we know that height of tube ceiling with respect to the floor of the
+					stage,Distance of the midpoint of the sample from the beginning of the
+					interaction tube, Flow rate of the carrier gas,
+				</p>
+			</li>
+		</ol>
+		<h1 id="future-work">Future Work</h1>
+		<ol>
+			<li>
+				<p>
+					Designing and Completion of a Full Factorial Design of Experiments
+				</p>
+			</li>
+			<li>
+				<p>
+					Designing an entirely new DSVA apparatus with better flow and
+					interaction with solvent in a better manner
+				</p>
+				<figure>
+					<img
+						src="new apparatus.png"
+						id="fig:bgbc_bgtc"
+						alt="Renditions of a new apparatus promoting better gas flow"
+					/>
+					<figcaption aria-hidden="true">
+						Renditions of a new apparatus promoting better gas flow
+					</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<h1 id="references">References</h1>
+	</body>
+</html>

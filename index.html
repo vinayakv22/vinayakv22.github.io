@@ -59,8 +59,15 @@
                 <span class="mobile-home-link"><a href="index.html">Vinayak.</a></span>
                 <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
             </div>
-
-            <div class="row wide main-nav-wrap">
+            <div class="row wide main-nav-wrap flex-header">
+            <div class="row wide main-nav-wrap flex-header-side">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a class="home-link side-block"> </a></li>
+                    </ul>
+                </nav>
+            </div>
+                <div class="row wide main-nav-wrap flex-header-main">
                 <nav class="column lg-12 main-nav">
                     <ul>
                         <li><a href="index.html" class="home-link">Vinayak.</a></li>
@@ -71,6 +78,14 @@
                     </ul>
                 </nav>
             </div>
+        <div class="row wide main-nav-wrap flex-header-side">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a class="home-link side-block"> </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
 
         </header> <!-- end s-header -->
 
@@ -408,94 +423,35 @@
             
                 <!-- Modal Templates Popup -->
                 <div id="modal-01" hidden>
-                    <div class="modal-popup">
-                        <img src="images/portfolio/gallery/g-fuji.jpg" alt="">
-                
-                        <div class="modal-popup__desc">
-                            <h5>DSVA Process Optimization for Organic Transistors</h5>
-                            <p>Conducted parameter optimization study for Directional Solvent Vapor Annealing (DSVA) in fabricating Organic Field-Effect Transistors (OFETs). Designed experiments varying substrate material, mixing ratio, and midpoint distance. Achieved state-of-the-art performance in OFET fabrication.</p>
-                            <ul class="modal-popup__cat">
-                                <li>Research</li>
-                                <li>Organic Electronics</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <!-- <div class="modal-overlay"></div> -->
+                        <iframe src="project_html\DSVA\test.html" class="iframe-modal"></iframe>
                 </div>
-            
+                
                 <div id="modal-02" hidden>
-                    <div class="modal-popup">
-                        <img src="images/portfolio/gallery/g-lamp.jpg" alt="">
-                
-                        <div class="modal-popup__desc">
-                            <h5>Human Activity Recognition for Edge Computing</h5>
-                            <p>Implemented Multi-Head Convolutional Attention networks for enhanced feature extraction. Achieved state-of-the-art accuracy on multiple datasets including WISDM, UCI-HAR, and PAMAP2. Optimized model size to less than 0.1 through advanced quantization techniques.</p>
-                            <ul class="modal-popup__cat">
-                                <li>Machine Learning</li>
-                                <li>Edge Computing</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="modal-overlay"></div>
+                    <iframe src="content/modal-02.html" class="iframe-modal"></iframe>
                 </div>
+                
                 <div id="modal-03" hidden>
-                    <div class="modal-popup">
-                        <img src="images/portfolio/gallery/g-rucksack.jpg" alt="">
-                
-                        <div class="modal-popup__desc">
-                            <h5>Face Mask Detection App</h5>
-                            <p>Implemented a deep learning model using ResNet-18 with custom CNN layers for accurate face mask detection. Created a Flutter-based mobile application integrating the trained model. Achieved 98.19% accuracy in classifying masked and unmasked faces.</p>
-                            <ul class="modal-popup__cat">
-                                <li>Deep Learning</li>
-                                <li>Mobile App Development</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="modal-overlay"></div>
+
+                    <iframe src="content/modal-03.html" class="iframe-modal"></iframe>
                 </div>
-            
+                
                 <div id="modal-04" hidden>
-                    <div class="modal-popup">
-                        <img src="images/portfolio/gallery/g-skaterboy.jpg" alt="">
-                
-                        <div class="modal-popup__desc">
-                            <h5>SOS Bracelet (Battery-Free)</h5>
-                            <p>Conceptualized an SOS device using Wi-Fi Backscatter Technology for areas with open Wi-Fi network coverage. Utilized Solidworks for mechanical design and Wireshark for data provision. Developed a battery-free SOS device in bracelet form using NFC technology, integrated with a modified Android application.</p>
-                            <ul class="modal-popup__cat">
-                                <li>IoT</li>
-                                <li>Android Development</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="modal-overlay"></div>
+                    <iframe src="content/modal-04.html" class="iframe-modal"></iframe>
                 </div>
-            
+                
                 <div id="modal-05" hidden>
-                    <div class="modal-popup">
-                        <img src="images/portfolio/gallery/g-sanddunes.jpg" alt="">
-                
-                        <div class="modal-popup__desc">
-                            <h5>4 Way Traffic Light Controller on FPGA Board</h5>
-                            <p>Developed a 4-Way Traffic Light Controller using Verilog/VHDL on a PYNQ-Z2 FPGA Board. Created comprehensive State Diagrams to model all possible states of a 4-way intersection. Designed a Timed Light Changing System to regulate traffic flow, optimizing the signal timing for safety and efficiency.</p>
-                            <ul class="modal-popup__cat">
-                                <li>FPGA</li>
-                                <li>Verilog/VHDL</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="modal-overlay"></div>
+                    <iframe src="content/modal-05.html" class="iframe-modal"></iframe>
                 </div>
-            
+                
                 <div id="modal-06" hidden>
-                    <div class="modal-popup">
-                        <img src="images/portfolio/gallery/g-minimalismo.jpg" alt="">
-                
-                        <div class="modal-popup__desc">
-                            <h5>Music Genre Classification</h5>
-                            <p>Implemented and evaluated 10+ machine learning models including XGBoost, CNN, Random Forest, and SVM for music genre classification, achieving up to 87% accuracy. Performed extensive data preprocessing and visualization using librosa, creating spectrograms, mel-spectrograms, and chroma feature plots for audio analysis.</p>
-                            <ul class="modal-popup__cat">
-                                <li>Machine Learning</li>
-                                <li>Audio Processing</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="modal-overlay"></div>
+                    <iframe src="content/modal-06.html" class="iframe-modal"></iframe>
                 </div>
-            </div>
             </section>
 
 

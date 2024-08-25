@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Project Report</title>
+		<link rel="stylesheet" href="../../css/vendor.css" />
+		<link rel="stylesheet" href="../../css/styles.css" />
+		<link rel="stylesheet" href="Images/images.css" />
+		<script
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+			type="text/javascript"
+		></script>
+		<!-- Link to your CSS file -->
+	</head>
+	<body>
+		<div class="s-pagewrap">
+			<!-- ## site header 
+        ================================================== -->
+			<header class="s-header-project">
+				<div class="header-mobile">
+					<span class="mobile-home-link">
+						<a href="#" onclick="parent.postMessage('closeModal', '*');"
+							>&#8592; Go Back</a
+						>
+					</span>
+					<!-- <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a> -->
+				</div>
+				<div class="row wide main-nav-wrap main-nav-wrap-project">
+					<nav class="column lg-12 main-nav">
+						<ul>
+							<li>
+								<a href="#" onclick="parent.postMessage('closeModal', '*');"
+									>&#8592; Go Back</a
+								>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			
+
+			</header>
+			<!-- end s-header -->
+
+			<!-- ## main content
+        ================================================== -->
+			<main class="s-content project">
+				<section id="project-report">
+					<h1>Directional Solvent Vapour Annealing Process Optimization</h1>
+
+					<h1 id="introduction">Introduction:</h1>
+					<p>
+						There is an escalating electronic waste crisis fueled by the short
+						lifespan of conventional electronic products and the need for
+						sustainable and eco-friendly alternatives has over the years become
+						extremely crucial. Organic electronics is a class of electronics
+						that mostly comprise of materials that organic in nature as they
+						provide several benefits in terms of being eco-friendly and
+						non-toxic in terms of human interactions. They present
+						characteristics such as flexibility, low cost, and scalability.
+					</p>
+					<p>
+						This project embarks on the optimization of fabrication processes
+						for Organic Field-Effect Transistors (OFETs). Major objectives of
+						the project include improving electrical performance of the OFETs by
+						varying pre-decided factors that may affect the performance. Further
+						integrate nature-oriented materials and biodegradability.
+					</p>
+					<p>
+						This project undertakes a parameter optimization study on a previous
+						paper introducing a novel techniques for creating crystals with
+						certain alignment using Directional Solvent Vapor Annealing(DSVA).
+						In DSVA for crystal alignment in solution-processed organic
+						semiconductors is proposed. The drop-cast technique is enhanced
+						using this postprocessing scheme of the solvent vapor annealing with
+						additional alignment of the crystals.
+					</p>
+					<h2 id="organic-field-effect-transistors">
+						Organic Field Effect Transistors
+					</h2>
+					<h3 id="structures">Structures</h3>
+					<p>
+						Organic thin film transistors (OTFTs) are active electronic
+						components that can be printed and used in analog, digital, and
+						mixed-signal circuits. They can also be used as stand-alone sensors
+						where the change in electrical current can be mapped to the physical
+						change being sensed . OTFTs are composed of three main components:
+						contacts (source (S), drain (D), and gate (G)), a dielectric thin
+						film, and an organic semiconducting thin film (OSC). Contacts are
+						typically made of silver, gold, copper, or ITO. However, there are
+						no standards or trends for dielectrics or organic semiconducting
+						material due to the many options and combinations available. The
+						components of an OTFT can be ordered into four different structures:
+						Bottom Gate Top Contact (BGTC), Bottom Gate Bottom Contact (BGBC),
+						Top Gate Bottom Contact (TGBC), and Top Gate Top Contact (TGTC).
+						Both BGTC and TGBC are considered staggered transistors due to their
+						structure, while BGBC and TGTC are considered coplanar transistors
+						for the same reason . Figure 1 shows the four different structures
+						of OTFTs.
+					</p>
+
+					<figure>
+						<img
+							src="Images/bgbc bgtc.png"
+							id="fig:bgbc_bgtc"
+							alt="Organic thin film transistor structures; a) Bottom gate bottom contact; b) Bottom gate top contact;c) Top gate bottom contact; d) Top gate top contact."
+						/>
+
+						<figcaption aria-hidden="true">
+							Organic thin film transistor structures; a) Bottom gate bottom
+							contact; b) Bottom gate top contact;c) Top gate bottom contact; d)
+							Top gate top contact.
+						</figcaption>
+					</figure>
+					<h3 id="operating-principles">Operating Principles</h3>
+					<p>
+						In both Organic thin-film transistors(OTFTs) and traditional silicon
+						metal-oxide semiconductor field0effect transistors(MOSFETs), the
+						operating principles share similarities. OTFTs the same as MOSFETs
+						involve source and drain electrodes directly contacting the
+						semiconductor with the gate contact insulated from the the
+						semiconductor by a dielectric film. Applying a voltage bias between
+						the gate and source electrodes (VGS) leads to carrier accumulation
+						near the semiconductor-dielectric interface, creating a channel for
+						current flow when a voltage bias is applied between the drain and
+						source (VDS). The minimum VGS required for channel creation is
+						called the threshold voltage (Vth).
+					</p>
+					<p>
+						The primary difference between OTFTs and MOSFETs lies in the channel
+						formation process. MOSFETs undergo an inversion process, resulting
+						in charge carriers in the channel opposite to those in the
+						semiconductor bulk. In OTFTs, the charge carriers in the channel are
+						same as those in the organic semiconductor (OSC) bulk.
+					</p>
+					<p>
+						Despite the differences in the type of charge transport in organic
+						and inorganic semiconductors, OTFTs exhibit similar regions of
+						operation to MOSFETs, including cut-off, linear, and saturation.
+						When <span class="math inline">\(|V_{GS}|\)</span> is lower than
+						<span class="math inline">\(|V_{th}|\)</span>, the transistor is in
+						cut-off, with no charge accumulation or channel formation, and thus,
+						no current conduction. The linear region starts when
+						<span class="math inline">\(|V_{GS}| \geq |V_{th}|\)</span> and
+						<span class="math inline"
+							>\((|V_{DS}| &lt; |V_{GS} - V_{th}|)\)</span
+						>, behaving like a variable resistor. In the saturation region,
+						reached at
+						<span class="math inline"
+							>\(|V_{DS}| \geq |V_{GS}| - |V_{th}|\)</span
+						>, the channel undergoes pinch-off, and the current saturates
+						following Equation (1-2), where
+						<span class="math inline">\(\mu_{Sat}\)</span> is carrier charge
+						mobility in the saturation regime.
+					</p>
+					<p>
+						<span class="math display"
+							>\[I_{DS} = \mu_{Lin} C_{g} \frac{W}{L} \left( V_{GS} - V_{th} -
+							\frac{V_{DS}}{2} \right) V_{DS}\]</span
+						>
+					</p>
+					<p>
+						<span class="math display"
+							>\[I_{DS} = \frac{1}{2} \mu_{Sat} C_g W \left( V_{GS} - V_{th}
+							\right)^2\]</span
+						>
+					</p>
+					<figure>
+						<img
+							src="Images/image2.png"
+							id="fig:operating-regimes"
+							alt="Operating regimes of a transistor. a) Cut-off; b) Linear; c) Saturation; d) IDS-VDS curve of some transistors indicating linear and saturation operating regions; e) I-V of a transistor indicating cut-off and operation regimes. Figures (d) and (e) from reference"
+						/>
+						<figcaption aria-hidden="true">
+							Operating regimes of a transistor. a) Cut-off; b) Linear; c)
+							Saturation; d) IDS-VDS curve of some transistors indicating linear
+							and saturation operating regions; e) I-V of a transistor
+							indicating cut-off and operation regimes. Figures (d) and (e) from
+							reference
+						</figcaption>
+					</figure>
+
+					<p>
+						The fundamental operation of an OTFT involves utilizing the
+						capacitor principle, generating an electric field in the dielectric
+						in response to a gate-source voltage (<span class="math inline"
+							>\(V_{GS}\)</span
+						>). This voltage creates an accumulation of holes or electrons by
+						aligning the Fermi level of the metal electrodes with the highest
+						occupied molecular orbital (HOMO) or lowest unoccupied molecular
+						orbital (LUMO) energy levels of p-type or n-type organic
+						semiconductors (OSCs). The energy diagram shows this concept, with a
+						positive <span class="math inline">\(V_{GS}\)</span> resulting in
+						insufficient electron injection and a small leakage current, while a
+						reversed gate voltage injects holes and forms a positively charged
+						channel, classifying the OSC as p-type.
+					</p>
+					<figure>
+						<img
+							src="Images/homolumo.png"
+							id="fig:homolumo"
+							alt="Energy band diagram for a typical combination of gold (S/D) and pentacene (OSC). Figure from reference"
+						/>
+						<figcaption aria-hidden="true">
+							Energy band diagram for a typical combination of gold (S/D) and
+							pentacene (OSC). Figure from reference
+						</figcaption>
+					</figure>
+					<h3 id="characteristics">Characteristics:</h3>
+					<p>
+						Several key parameters determine the performance of an organic
+						transistor, and these include field-dependent mobility (<span
+							class="math inline"
+							>\(\mu\)</span
+						>), threshold voltage (<span class="math inline">\(V_{th}\)</span>),
+						on/off current ratio (<span class="math inline"
+							>\(I_{ON}/I_{OFF}\)</span
+						>), and sub-threshold slope (SS). Various factors, such as device
+						geometry, material choices in different layers, grain size of the
+						organic semiconductor thin film, structural dimensions, and
+						semiconductor morphology, can impact these parameters. Achieving
+						superior performance in organic transistors requires high mobility,
+						low threshold voltage, a large on/off current ratio, and a steep
+						sub-threshold slope, all of which are essential for optimal
+						functionality.
+					</p>
+					<ul>
+						<li>
+							<p>
+								<strong
+									>Mobility (<span class="math inline">\(\mu\)</span>):</strong
+								>
+								Device mobility measures the efficiency of charge carrier
+								movement along the conducting path, representing the average
+								drift velocity of charge carriers per unit electric field. High
+								mobility is particularly crucial for achieving a high
+								on-current, a fundamental requirement for superior performance.
+							</p>
+						</li>
+						<li>
+							<p>
+								<strong
+									>Threshold Voltage (<span class="math inline">\(V_{th}\)</span
+									>):</strong
+								>
+								The threshold voltage is a critical parameter determining the
+								switching behavior of a device. It signifies the minimum gate
+								voltage required to accumulate charge carriers at the interface
+								between the organic semiconductor and the insulator, forming a
+								conductive path between the source and the drain.
+								<span class="math inline">\(V_{th}\)</span> significantly
+								influences the overall operation of an organic transistor.
+							</p>
+						</li>
+						<li>
+							<p>
+								<strong
+									>On/Off Current Ratio (<span class="math inline"
+										>\(I_{ON}/I_{OFF}\)</span
+									>):</strong
+								>
+								The on/off current ratio, or current ratio in accumulation mode
+								to depletion mode, is a crucial parameter for evaluating organic
+								transistor performance. A high dielectric constant of the
+								insulator, a thin semiconductor layer, and a low doping
+								concentration contribute to creating a significant difference
+								between on and off current. This parameter measures the device’s
+								ability to turn on and off, serving as an important metric for
+								assessing its suitability for various applications.
+							</p>
+						</li>
+						<li>
+							<p>
+								<strong>Sub-threshold Slope (SS):</strong> Sub-threshold slope
+								(SS) gauges the change in drain current on a logarithmic scale
+								concerning the change in gate biasing. It reflects impurity
+								concentration, interface state, and trap density, influencing
+								the switching behavior of a transistor. SS is a crucial
+								parameter for evaluating the efficiency of a transistor as a
+								switch, determined by the ratio of the change in gate biasing to
+								the change in drain current on a logarithmic scale. It plays a
+								key role in determining the device’s suitability for various
+								applications.
+							</p>
+						</li>
+					</ul>
+					<h2 id="directional-solvent-vapor-annealing-dsva">
+						Directional Solvent Vapor Annealing (DSVA)
+					</h2>
+					<h3 id="experimental-setup">Experimental Setup</h3>
+					<p>
+						The DSVA setup was specially designed and built to perform both
+						deposition and postprocessing. The schematic diagram in Figure 4
+						illustrates the setup, comprising three zones: fusion, directive,
+						and interaction. The fusion zone features a glass vessel filled with
+						a solvent at the bottom, heated by a hot plate. The vessel has two
+						inlets for solvent and carrier gas. At the top of the fusion zone,
+						there is a chamber with an inlet for pushing the gas-vapor mixture
+						into the directive zone. This is where the solvent vapor is
+						generated, mixed with the carrier gas, and propelled into the
+						directive zone.
+					</p>
+					<p>
+						The directive zone is a hollow rectangular chamber with very low
+						height, providing high directionality to the gas-vapor mixture. The
+						mixture flows continuously from the fusion zone to the interaction
+						zone. In the interaction zone, there is a long and narrow tube with
+						a stage that can be adjusted to place the samples at different
+						positions. The interaction between the gas-vapor mixture and the
+						substrate with the solution takes place in this zone. The tube has a
+						removable door at the end for inserting or removing samples, and a
+						small vent at the top for gas discharge. Figure 5 presents the
+						cross-sectional view of the tube, indicating different parameters.
+						<span class="math inline">\(h_{c,i}\)</span> is the height of the
+						tube ceiling from the stage floor,
+						<span class="math inline">\(d_{s,i}\)</span> is the distance of the
+						sample midpoint from the start of the tube, and
+						<span class="math inline">\(f_{t,i}\)</span> is the flow rate of the
+						carrier gas.
+					</p>
+
+					<figure>
+						<img
+							src="Images/dsva1.png"
+							id="fig:dsva1"
+							alt="Design of a customized experimental setup to perform DSVA. The setup has three main zones: fusion, directive, and interaction zone."
+						/>
+						<figcaption aria-hidden="true">
+							Design of a customized experimental setup to perform DSVA. The
+							setup has three main zones: fusion, directive, and interaction
+							zone.
+						</figcaption>
+					</figure>
+
+					<figure>
+						<img
+							src="Images/dsva2.png"
+							id="fig:dsva2"
+							alt="Depiction of various parameters for DSVA. h_{c,i}, d_{s,i}, and f_{t,i} denote the height of the tube ceiling with respect to the floor of the stage, the distance of the midpoint of the sample from the beginning of the interaction tube, and the flow rate of the carrier gas, respectively."
+						/>
+						<figcaption aria-hidden="true">
+							Depiction of various parameters for DSVA.
+							<span class="math inline">\(h_{c,i}\)</span>,
+							<span class="math inline">\(d_{s,i}\)</span>, and
+							<span class="math inline">\(f_{t,i}\)</span> denote the height of
+							the tube ceiling with respect to the floor of the stage, the
+							distance of the midpoint of the sample from the beginning of the
+							interaction tube, and the flow rate of the carrier gas,
+							respectively.
+						</figcaption>
+					</figure>
+
+					<h3 id="comparison-of-various-solution-processing-techniques">
+						Comparison of Various Solution-Processing Techniques
+					</h3>
+					<p>Table shown in Figure 6</p>
+					<!-- <figure>
+						<img
+							src="Images/Table.png"
+							style="width: 100%"
+							alt="Table with Comparison of Different Solution-Processing Techniques"
+						/>
+						<figcaption aria-hidden="true">
+							Table with Comparison of Different Solution-Processing Techniques
+						</figcaption>
+					</figure> -->
+					Here is the table rewritten in the requested format:
+					
+					<div class="table-container">
+						<div class="flex-table">
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Attribute</strong></div>
+								<div class="flex-cell attribute"><strong>Drop Casting</strong></div>
+								<div class="flex-cell attribute "><strong>Spin Coating</strong></div>
+								<div class="flex-cell attribute"><strong>Dip Coating</strong></div>
+								<div class="flex-cell attribute"><strong>Spray Coating</strong></div>
+								<div class="flex-cell attribute"><strong>Zone Casting</strong></div>
+								<div class="flex-cell attribute"><strong>Solution Shearing</strong></div>
+								<div class="flex-cell attribute"><strong>DSVA</strong></div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Material Wastage</strong></div>
+								<div class="flex-cell">low</div>
+								<div class="flex-cell">high</div>
+								<div class="flex-cell">very high</div>
+								<div class="flex-cell">low</div>
+								<div class="flex-cell">low</div>
+								<div class="flex-cell">low</div>
+								<div class="flex-cell">low</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Time Of Film Preparation</strong></div>
+								<div class="flex-cell">slow</div>
+								<div class="flex-cell">very quick</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">quick</div>
+								<div class="flex-cell">moderate</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Apparatus And Its Complexity</strong></div>
+								<div class="flex-cell">not required</div>
+								<div class="flex-cell">required, average</div>
+								<div class="flex-cell">required, average</div>
+								<div class="flex-cell">required, average</div>
+								<div class="flex-cell">required, complex</div>
+								<div class="flex-cell">required, complex</div>
+								<div class="flex-cell">required, simple</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Separate Postprocessing</strong></div>
+								<div class="flex-cell">required</div>
+								<div class="flex-cell">required</div>
+								<div class="flex-cell">required</div>
+								<div class="flex-cell">required</div>
+								<div class="flex-cell">required</div>
+								<div class="flex-cell">required</div>
+								<div class="flex-cell">not required</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Film Uniformity</strong></div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">moderate</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Control On Film Thickness</strong></div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">moderate</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Crystalline Quality</strong></div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Crystal Alignment</strong></div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">good</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Control On Crystal Dimensions</strong></div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Control On Morphology</strong></div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Achievable Morphologies</strong></div>
+								<div class="flex-cell">thin films, discrete crystallites</div>
+								<div class="flex-cell">thin films</div>
+								<div class="flex-cell">thin films, discrete crystallites</div>
+								<div class="flex-cell">thin films</div>
+								<div class="flex-cell">discrete crystallites</div>
+								<div class="flex-cell">continuous crystallites</div>
+								<div class="flex-cell">
+									thin films, discrete and continuous crystallites
+								</div>
+							</div>
+							<div class="flex-row">
+								<div class="flex-cell attribute"><strong>Repeatability</strong></div>
+								<div class="flex-cell">poor</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">moderate</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">good</div>
+								<div class="flex-cell">good</div>
+							</div>
+						</div>
+					</div>
+					<h3 id="conclusions-of-the-initial-study">
+						Conclusions of the Initial Study
+					</h3>
+					<p>
+						DSVA is a proposed solution processing technique for organic
+						semiconductors that combines SVA and gas flow. DSVA improves the
+						molecular self-assembly and alignment of the semiconductor films by
+						using SVA and gas−vapor mixture, respectively. The degree of
+						crystallinity and alignment of the semiconducting ribbons depends on
+						the flow rate of the carrier gas and the position of the substrate
+						in the interaction tube. The optimal conditions for DSVA produce a
+						semiconducting layer with well-aligned and interconnected ribbons.
+						Such a layer leads to a high performance of the OFETs, suggesting
+						that DSVA is a versatile technique for solution processing of
+						organic semiconductors.
+					</p>
+					<div class="flushright">
+						<p><strong>Background and Problem Statement</strong></p>
+					</div>
+					<h1 id="problem-statement">Problem Statement</h1>
+					<p>
+						The escalating global issue of electronic waste demands a shift
+						towards sustainable alternatives. While high performance organic
+						electronics particularly Organic Field-Effect Transistors(OFETs)
+						show promise, their performance is still not at par with traditional
+						inorganic electronics. The task that needs to be undertaken is that
+						we need to seamlessly integrate high performance and
+						eco-friendliness while navigating through complex procedures such as
+						material selection and fabrication processes and produce OFETs that
+						are air-stable and biodegradable in nature.
+					</p>
+					<p>
+						One Technique that is used to create OFETs is drop casting the
+						organic semiconductor on your substrates however even though this
+						technique has shown promise but this technique doesn’t take into
+						account the need for alignment of crystals or the elongation of
+						crystals. Hence another novel technique can be used post
+						drop-casting that uses Directional Solvent Vapor Annealing or DSVA.
+						However, since DSVA is a novel technique and there is lack of
+						research on several parameters that may or may not affect the
+						techniques’ outcomes. So, there is a need for a parameter
+						optimization study that varies several relevant parameters and
+						reports the outcomes.
+					</p>
+					<h1 id="background">Background</h1>
+					<p>
+						Organic semiconductor solution-processing methods are gaining
+						attention for their cheaper production costs and eco-friendly
+						nature, aiming to compete with complex vacuum processing techniques.
+						Factors influencing the performance of solution-processed devices
+						include crystallinity, molecular packing, morphology, and
+						orientation of crystalline domains. The main challenge in
+						solution-processed semiconductors arises from three-dimensional
+						crystal growth, leading to inconsistent charge transport and device
+						behavior.
+					</p>
+					<p>
+						Common methods like drop casting and spin coating present a
+						trade-off between molecular settlement time and crystallinity,
+						impacting uniformity and consistency in device performance.
+						Alternative processing and post-processing methods, such as zone
+						casting, dip coating, and inkjet printing, have been explored to
+						control molecular self-assembly and enhance crystalline order.
+						Incorporating post-processing methods like solvent vapor annealing
+						(SVA) has proven advantageous for improving self-organization and
+						crystalline order in semiconductor films.
+					</p>
+					<p>
+						The proposed directional solvent vapor annealing (DSVA) integrates
+						deposition and post-processing, aiming to achieve highly aligned and
+						crystalline films for high-performance organic semiconductor
+						devices. DSVA involves the flow of a carrier gas and solvent vapors
+						in a specific direction and proximity to the substrate, promoting
+						macroscopic alignment and microscopic molecular self-assembly in
+						crystalline domains.
+					</p>
+					<p>
+						Parameters like carrier gas flow rate, substrate proximity, and
+						position in the interaction tube critically affect overall
+						crystallinity, alignment, and device performance. DSVA application
+						in organic field-effect transistors (OFETs) fabrication demonstrated
+						a maximum mobility of
+						<span class="math inline"
+							>\(0.86 \, \text{cm}^2/\text{V} \cdot \text{s}\)</span
+						>
+						and a high current on-off ratio of
+						<span class="math inline">\(10^6\)</span>, showcasing its potential
+						for achieving high-performance devices in solution-processed organic
+						semiconductors.
+					</p>
+					<div class="flushright">
+						<p><strong>Work done, Results and Discussions</strong></p>
+					</div>
+					<h1 id="work-done">Work Done</h1>
+					<h2 id="experimental-setup-1">Experimental Setup</h2>
+					<p>
+						The experimental setup was in dysfunctional state at the start of
+						the project and hence required tune-up and testing for any
+						malfunction that may have been caused due to the apparatus being
+						unused for a long time.
+					</p>
+					<p>
+						Finally, There were some issues regarding the cleaning of the
+						apparatus as the glass vessel that rests on a hot plate has no big
+						enough opening for a proper cleaning and the adhesive did not
+						interact well with Iso-propyl alcohol and seem to disintegrate on
+						contact. So another way was employed as toluene was used under a
+						fume hood and then heated and vapours were allowed to flow from
+						inside the glass vessel to the rest of the apparatus hence cleaning
+						the entire apparatus. These are pictures of the final apparatus.
+					</p>
+					<figure>
+						<img
+							src="Images/setup.png"
+							id="fig:setup"
+							alt="Apparatus After Cleaning and Testing"
+						/>
+						<figcaption aria-hidden="true">
+							Apparatus After Cleaning and Testing
+						</figcaption>
+					</figure>
+					<h3 id="metal-bracket">Metal Bracket</h3>
+					<p>
+						A metal Bracket was required to handle the weight of the gas pipe
+						that was bringing the end of the apparatus down and straining the
+						glass pipes directly glued to the apparatus.
+					</p>
+					<figure>
+						<img
+							src="Images/metal Brackett.png"
+							id="fig:metal-bracket"
+							alt="Apparatus After Cleaning and Testing"
+						/>
+						<figcaption aria-hidden="true">
+							Apparatus After Cleaning and Testing
+						</figcaption>
+					</figure>
+					<h2 id="finalization-of-parameters">Finalization of Parameters</h2>
+					<p>
+						A lot of parameters were discussed and pondered upon, finally coming
+						up with a list of parameters that will be used in the parameter
+						optimization study. The following parameters will be used:
+					</p>
+					<ul>
+						<li>
+							<p>
+								Height of the tube ceiling with respect to the floor of the
+								stage
+							</p>
+						</li>
+						<li>
+							<p>
+								Distance of the midpoint of the sample from the beginning of the
+								interaction tube
+							</p>
+						</li>
+						<li><p>Flow rate of the carrier gas</p></li>
+						<li>
+							<p>
+								Concentration of the gas-vapor mixture in different regions of
+								the interaction tube
+							</p>
+						</li>
+						<li><p>Incline of the sample</p></li>
+						<li><p>Substrate material</p></li>
+						<li><p>Mixing ratio</p></li>
+					</ul>
+					<h2 id="some-preliminary-experiments">
+						Some Preliminary Experiments
+					</h2>
+					<p>
+						There were some basic questions that arose during the project and
+						some basic preliminary experiments without much experimental setup
+						were designed to answer those questions.
+					</p>
+					<p>
+						There was one experiment where 2 samples of ITO-PET substrate were
+						taken after proper cleaning process and then through Atomic Layer
+						Deposition (ALD) Hafnium was deposited on only one of them and then
+						6,13-Bis(triisopropylsilylethynyl)pentacene also known as
+						TIPS-Pentacene was drop-casted on both those samples.
+					</p>
+					<p>
+						Then to simulate something like DSVA, Nitrogen gas was passed over
+						the samples and to prevent direct flow of the gas over the samples a
+						simple cardboard piece was placed. The inferences from the
+						experiment included that the only the flow of gas without solvent
+						vapors was not responsible for the crystal formation and Hafnium
+						provided better crystallinity as compared to sample without Hafnium.
+					</p>
+					<p>
+						Another Experiment was conducted and this experiment included two
+						samples based on ITO-PET and one was coated Polystyrene(PS) and then
+						TIPS-Pentacene was drop casted on it. And another sample which was
+						drop-casted with a pre mixed TIPS-Pentacene and Polystyrene solution
+						in Toluene. The sample that was coated with Polystyrene and then
+						TIPS-Pentacene showed better crystallinity however the electrical
+						characteristics were not tested. In an ideal scenario the
+						TIPS-Pentacene and PS mix should have shown phase separation during
+						crystal formation.
+					</p>
+					<h2 id="experiment-design-and-experiment">
+						Experiment Design and Experiment
+					</h2>
+					<p>
+						As Part of the Preliminary experimental design prior to a full
+						factorial Design of Experiments method to find out factors that seem
+						to make a difference for our process. Several Factors like Mixing
+						Ratio,Substrate Material,Incline of the sample were varied and then
+						the experiment was run as described above with bare minimum air flow
+						and Toluene as Solvent heated to 120 °C inside the fume hood. The
+						experiment was run Thrice for an hour each time and the film formed
+						was observed under a microscope. Since it is already known to us
+						height of tube ceiling with respect to the floor of the
+						stage,Distance of the midpoint of the sample from the beginning of
+						the interaction tube, Flow rate of the carrier gas have effect on
+						the film of the sample so these were made constant at 6 mm , (1.5
+						inches,4 inches, 6 inches), 0.5L/min.
+					</p>
+					<figure>
+						<img
+							src="Images/doe table.png"
+							id="fig:doe_table"
+							alt="Table containing preliminary experiment design "
+						/>
+						<figcaption aria-hidden="true">
+							Table containing preliminary experiment design
+						</figcaption>
+					</figure>
+					<h3 id="substrate-preparation">Substrate Preparation</h3>
+					<p>
+						Two types of substrates were used in the experiment ITO-PET and
+						Silicon Wafer. Both of them were cleaned using Iso-propyl
+						Alcohol,Acetone and Distilled Water. After which ITO-PET had a
+						deposition of Hafnium using Atomic Layer Deposition and Silicon
+						Wafer was submerged in 5 mM Octadecyltrichlorosilane(OTS) in Toluene
+						for 24 hours.
+					</p>
+					<h3 id="solution-preparation">Solution Preparation</h3>
+					<p>
+						A 0.5 wt% solution of TIPS-pentacene in toluene (5 mg/mL) was
+						prepared by stirring for 3 h at 65 °C. Along with 0.5 wt% solution
+						of Polystyrene in Toluene (5 mg/ml) in a similar manner. The were
+						mixed in various ratios such 100% (Pure TIPS-Pentacene) , 25% and
+						75% .
+					</p>
+					<h3 id="experiment">Experiment</h3>
+					<p>
+						The prepared solutions were drop casted on the samples according to
+						a prior experimental design mapping various combination to make it
+						easy to identify factor contributions.Then Nitrogen was run through
+						the apparatus.
+					</p>
+					<figure>
+						<img
+							src="Images/setup.jpg"
+							id="fig:setup-2"
+							alt="Working Setup During Experiment"
+						/>
+						<figcaption aria-hidden="true">
+							Working Setup During Experiment
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/silicon before dropcast.png"
+							id="fig:setup-2"
+							alt="Silicon wafers on stage before drop casting "
+						/>
+						<figcaption aria-hidden="true">
+							Silicon wafers on stage before drop casting
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/silicon inside.jpg"
+							id="fig:setup-2"
+							alt="Silicon Wafers inside the apparatus after Drop Casting"
+						/>
+						<figcaption aria-hidden="true">
+							Silicon Wafers inside the apparatus after Drop Casting
+						</figcaption>
+					</figure>
+					<h3 id="source-drain-deposition">Source-Drain Deposition</h3>
+					<p>
+						<span class="math inline">\(\sim\)</span> 100-nm-thick top gold (Au)
+						was deposited through a metal shadow mask to pattern source and
+						drain, using vacuum thermal evaporation with base pressure on the
+						order of 10−6 torr.
+					</p>
+					<h3 id="characterization">Characterization</h3>
+					<p>
+						Electrical Characterization was done on the samples using a Probe
+						Station. And relevant data was extracted showcasing the samples’
+						input output characteristics in various Regions of Operation.
+					</p>
+					<figure>
+						<img
+							src="Images/probe station.jpg"
+							id="fig:probe-station"
+							alt="Probe Station"
+						/>
+						<figcaption aria-hidden="true">Probe Station</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/2007-01-01-05-05-26.png"
+							id="fig:probe-station-pins"
+							alt="Probe Station pins interacting with the Au electrodes on the Silicon Wafer sample"
+						/>
+						<figcaption aria-hidden="true">
+							Probe Station pins interacting with the Au electrodes on the
+							Silicon Wafer sample
+						</figcaption>
+					</figure>
+					<h2 id="results-and-observations">Results and Observations</h2>
+					<h3 id="film-images">Film Images</h3>
+					<p>Figures 15-17</p>
+					<figure>
+						<img
+							src="Images/ito.png"
+							id="fig:ito"
+							alt="Films for ITO-PET substrate with (a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches (b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS) at 6 inches"
+						/>
+						<figcaption aria-hidden="true">
+							Films for ITO-PET substrate with
+							(a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches
+							(b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS)
+							at 6 inches
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/silicon.png"
+							id="fig:silicon"
+							alt="Films for Silicon Wafer substrate with (a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches (b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS) at 6 inches"
+						/>
+						<figcaption aria-hidden="true">
+							Films for Silicon Wafer substrate with
+							(a)75%(TIPS-Pentacene:Polystyrene(PS) at 1.5 inches
+							(b)75%(TIPS-Pentacene:PS) at 4 inches (c) 25%(TIPS-Pentacene:PS)
+							at 6 inches
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/pure tips.png"
+							id="fig:pure-tips"
+							alt="Film on ITO-PET substrate with 100% TIPS Solution at 5 inches"
+						/>
+						<figcaption aria-hidden="true">
+							Film on ITO-PET substrate with 100% TIPS Solution at 5 inches
+						</figcaption>
+					</figure>
+					<h3 id="plots">Plots</h3>
+					<p>Figures 18-21</p>
+					<figure>
+						<img
+							src="Images/ito-pet id vg.png"
+							id="fig:plots"
+							alt="Drain Current vs Gate Voltage(ITO-PET substrate)"
+						/>
+						<figcaption aria-hidden="true">
+							Drain Current vs Gate Voltage(ITO-PET substrate)
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/id vs vg sat.png"
+							id="fig:plots"
+							alt="Drain Current vs Gate Voltage(Silicon Wafer substrate)"
+						/>
+						<figcaption aria-hidden="true">
+							Drain Current vs Gate Voltage(Silicon Wafer substrate)
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/iv 1st.png"
+							id="fig:plots"
+							alt="Drain Current vs Drain Voltage for different Gate Voltage(Silicon Wafer substrate)"
+						/>
+						<figcaption aria-hidden="true">
+							Drain Current vs Drain Voltage for different Gate Voltage(Silicon
+							Wafer substrate)
+						</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="Images/iv2.png"
+							id="fig:plots"
+							alt="Drain Current vs Drain Voltage for different Gate Voltage(Silicon Wafer substrate)"
+						/>
+						<figcaption aria-hidden="true">
+							Drain Current vs Drain Voltage for different Gate Voltage(Silicon
+							Wafer substrate)
+						</figcaption>
+					</figure>
+					<div class="flushright"></div>
+					<h1 id="conclusions">Conclusions</h1>
+					<ol>
+						<li>
+							<p>
+								The substrate ITO-PET isn’t hydrophilic enough to hold our
+								solution in a stable form in front of the Nitrogen gas. So, some
+								more surface treatment needs to be done to the ITO-PET for
+								better attraction towards the solution.The non-uniform film
+								cause short circuits.
+							</p>
+						</li>
+						<li>
+							<p>
+								The Factor Mixing Ratio has an effect on the quality of the film
+								higher concentration provided better quality film with uniform
+								crystals and in the end relatively better performance.
+							</p>
+						</li>
+						<li>
+							<p>
+								The Factor Incline didn’t have a positive effect instead
+								resulted in accumulation of the solution at the bottom end not
+								being able to form a film on the the sample apart from the very
+								bottom
+							</p>
+						</li>
+						<li>
+							<p>
+								The Factor Substrate Material Does have an effect as the
+								interactions with solution and hydrophobicity of every substrate
+								is different and surface treatments also make a difference.
+							</p>
+						</li>
+						<li>
+							<p>
+								In respect to prior testing with the apparatus in the original
+								paper we know that height of tube ceiling with respect to the
+								floor of the stage,Distance of the midpoint of the sample from
+								the beginning of the interaction tube, Flow rate of the carrier
+								gas,
+							</p>
+						</li>
+					</ol>
+					<h1 id="future-work">Future Work</h1>
+					<ol>
+						<li>
+							<p>
+								Designing and Completion of a Full Factorial Design of
+								Experiments
+							</p>
+						</li>
+						<li>
+							<p>
+								Designing an entirely new DSVA apparatus with better flow and
+								interaction with solvent in a better manner
+							</p>
+							<figure>
+								<img
+									src="Images/new apparatus.png"
+									id="fig:new-apparatus"
+									alt="Renditions of a new apparatus promoting better gas flow"
+								/>
+								<figcaption aria-hidden="true">
+									Renditions of a new apparatus promoting better gas flow
+								</figcaption>
+							</figure>
+						</li>
+					</ol>
+					<h1 id="references">References</h1>
+					<ol class="references">
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Bharti, D. &amp; Tiwari, S. P. (2016). Crystallinity and
+								Performance Improvement in Solution Processed Organic
+								Field-Effect Transistors Due to Structural Dissimilarity of the
+								Additive Solvent. <i>Synth. Met.</i>, 215, 1-6.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Reig, M., Puigdollers, J., &amp; Velasco, D. (2015). Molecular
+								Order of Air-Stable p-type Organic Thin-Film Transistors by
+								Tuning the Extension of the π-Conjugated Core: The Cases of
+								Indolo[3,2-B]Carbazole and Triindole Semiconductors.
+								<i>J. Mater. Chem. C</i>, 3, 506-513.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Kalita, A., Subbarao, N. V. V., &amp; Iyer, P. K. (2015).
+								Large-Scale Molecular Packing and Morphology-Dependent High
+								Performance Organic Field-Effect Transistor by Symmetrical
+								Naphthalene Diimide Appended with Methyl Cyclohexane.
+								<i>J. Phys. Chem. C</i>, 119, 12772-12779.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Kim, M. J., Heo, H. W., Suh, Y. K., &amp; Song, C. K. (2011).
+								Morphology Control of TIPS-Pentacene Grains with Inert Gas
+								Injection and Effects on the Performance of OTFTS.
+								<i>Org. Electron.</i>, 12, 1170-1176.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Shao, W., Dong, H., Jiang, L., &amp; Hu, W. (2011). Morphology
+								Control for High Performance Organic Thin Film Transistors.
+								<i>Chem. Sci.</i>, 2, 590-600.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								He, Z., Chen, J., Sun, Z., Szulczewski, G., &amp; Li, D. (2012).
+								Air-Flow Navigated Crystal Growth for TIPS Pentacene-Based
+								Organic Thin-Film Transistors. <i>Org. Electron.</i>, 13,
+								1819-1826.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Kumatani, A., Liu, C., Li, Y., Darmawan, P., Takimiya, K.,
+								Minari, T., &amp; Tsukagoshi, K. (2012). Solution-processed,
+								Self-organized Organic Single Crystal Arrays with Controlled
+								Crystal Orientation. <i>Sci. Rep.</i>, 2(393).
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Jeong, H., Han, S., Baek, S., Kim, S. H., &amp; Lee, H. S.
+								(2016). Dense Assembly of Soluble Acene Crystal Ribbons and Its
+								Application to Organic Transistors.
+								<i>ACS Appl. Mater. Interfaces</i>, 8, 24753-24760.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Wu, K.-Y., Hsieh, C.-T., Wang, L.-H., Hsu, C.-H., Chang, S.-T.,
+								Lan, S.-T., Huang, Y.-F., Chen, Y.-M., &amp; Wang, C.-L. (2016).
+								Influences of Out-Of-Plane Lattice Alignment on the OFET
+								Performance of TIPS-PEN Crystal Arrays.
+								<i>Cryst. Growth Des.</i>, 16, 6160-6166.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								He, T., Zhang, X., Jia, J., Li, Y., &amp; Tao, X. (2012).
+								Three-Dimensional Charge Transport in Organic Semiconductor
+								Single Crystals. <i>Adv. Mater.</i>, 24, 2171-2175.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Chen, J., Tee, C. K., Shtein, M., Martin, D. C., &amp; Anthony,
+								J. (2009). Controlled Solution Deposition and Systematic Study
+								of Charge-Transport Anisotropy in Single Crystal and
+								Single-Crystal Textured Tips Pentacene Thin Films.
+								<i>Org. Electron.</i>, 10, 696-703.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Headrick, R. L., Wo, S., Sansoz, F., &amp; Anthony, J. E.
+								(2008). Anisotropic Mobility in Large Grain Size Solution
+								Processed Organic Semiconductor Thin Films.
+								<i>Appl. Phys. Lett.</i>, 92(063302).
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Kim, C. S., Lee, S., Gomez, E. D., Anthony, J. E., &amp; Loo,
+								Y.-L. (2008). Solvent-Dependent Electrical Characteristics and
+								Stability of Organic Thin-Film Transistors with Drop Cast
+								bis(triisopropylsilylethynyl) Pentacene.
+								<i>Appl. Phys. Lett.</i>, 93(103302).
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Park, S. K., Mourey, D. A., Han, J.-I., Anthony, J. E., &amp;
+								Jackson, T. N. (2009). Environmental and Operational Stability
+								of Solution-Processed 6,13-bis(triisopropyl-silylethynyl)
+								Pentacene Thin Film Transistors. <i>Org. Electron.</i>, 10,
+								486-490.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Choi, D., Ahn, B., Kim, S. H., Hong, K., Ree, M., &amp; Park, C.
+								E. (2012). High-Performance Triisopropylsilylethynyl Pentacene
+								Transistors via Spin Coating with a Crystallization-Assisting
+								Layer. <i>ACS Appl. Mater. Interfaces</i>, 4, 117-122.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Park, S. K., Jackson, T. N., Anthony, J. E., &amp; Mourey, D. A.
+								(2007). High Mobility Solution Processed
+								6,13-bis(triisopropyl-silylethynyl) Pentacene Organic Thin Film
+								Transistors. <i>Appl. Phys. Lett.</i>, 91(063514).
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								He, Z., Xiao, K., Durant, W., Hensley, D. K., Anthony, J. E.,
+								Hong, K., Kilbey, S. M., Chen, J., &amp; Li, D. (2011). Enhanced
+								Performance Consistency in Nanoparticle/TIPS Pentacene-Based
+								Organic Thin Film Transistors. <i>Adv. Funct. Mater.</i>, 21,
+								3617-3623.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Park, J. H., Lee, K. H., Mun, S.-j., Ko, G., Heo, S. J., Kim, J.
+								H., Kim, E., &amp; Im, S. (2010). Self-Assembly of Organic
+								Channel/Polymer Dielectric Layer in Solution Process for
+								Low-Voltage Thin-Film Transistors. <i>Org. Electron.</i>, 11,
+								1688-1692.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Su, Y., Gao, X., Liu, J., Xing, R., &amp; Han, Y. (2013).
+								Uniaxial Alignment of Triisopropylsilylethynyl Pentacene via
+								Zone-Casting Technique. <i>Phys. Chem. Chem. Phys.</i>, 15,
+								14396-14404.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Jang, J., Nam, S., Im, K., Hur, J., Cha, S. N., Kim, J., Son, H.
+								B., Suh, H., Loth, M. A., Anthony, J. E., Park, J.-J., Park, C.
+								E., Kim, J. M., &amp; Kim, K. (2012). Highly Crystalline Soluble
+								Acene Crystal Arrays for Organic Transistors: Mechanism of
+								Crystal Growth During Dip−Coating. <i>Adv. Funct. Mater.</i>,
+								22, 1005-1014.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Li, L., Gao, P., Schuermann, K. C., Ostendorp, S., Wang, W., Du,
+								C., Lei, Y., Fuchs, H., Cola, L. D., Müllen, K., &amp; Chi, L.
+								(2010). Controllable Growth and Field-Effect Property of
+								Monolayer to Multilayer Microstripes of an Organic
+								Semiconductor. <i>J. Am. Chem. Soc.</i>, 132, 8807-8809.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Giri, G., Verploegen, E., Mannsfeld, S. C. B., Atahan-Evrenk,
+								S., Kim, D. H., Lee, S. Y., Becerril, H. A., Aspuru-Guzik, A.,
+								Toney, M. F., &amp; Bao, Z. (2011). Tuning Charge Transport in
+								Solution-Sheared Organic Semiconductors Using Lattice Strain.
+								<i>Nature</i>, 480, 504-508.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Niazi, M. R., Li, R., Li, E. Q., Kirmani, A. R., Abdelsamie, M.,
+								Wang, Q., Pan, W., Payne, M. M., Anthony, J. E., Smilgies,
+								D.-M., Thoroddsen, S. T., Giannelis, E. P., &amp; Amassian, A.
+								(2015). Solution-Printed Organic Semiconductor Blends Exhibiting
+								Transport Properties on par with Single Crystals.
+								<i>Nat. Commun.</i>, 6(8598).
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Pierre, A., Sadeghi, M., Payne, M. M., Facchetti, A., Anthony,
+								J. E., &amp; Arias, A. C. (2014). All-Printed Flexible Organic
+								Transistors Enabled by Surface Tension-Guided Blade Coating.
+								<i>Adv. Mater.</i>, 26, 5722-5727.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Lim, J. A., Lee, W. H., Lee, H. S., Lee, J. H., Park, Y. D.,
+								&amp; Cho, K. (2008). Self-Organization of Ink-jet-Printed
+								Triisopropylsilylethynyl Pentacene via Evaporation-Induced Flows
+								in a Drying Droplet. <i>Adv. Funct. Mater.</i>, 18, 229-234.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Li, H., Tee, B. C. K., Giri, G., Chung, J. W., Lee, S. Y., &amp;
+								Bao, Z. (2012). High-Performance Transistors and Complementary
+								Inverters Based on Solution-Grown Aligned Organic
+								Single-Crystals. <i>Adv. Mater.</i>, 24, 2588-2591.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Onojima, N., Saito, H., &amp; Kato, T. (2013). Bottom-Contact
+								Organic Field-Effect Transistors Based on Single-Crystalline
+								Domains of 6,13-bis(triisopropylsilylethynyl) pentacene Prepared
+								by Electrostatic Spray Deposition. <i>Org. Electron.</i>, 14,
+								2406-2410.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Chang, J., Chi, C., Zhang, J., &amp; Wu, J. (2013). Controlled
+								Growth of Large-Area High-Performance Small-Molecule Organic
+								Single-Crystalline Transistors by Slot-Die Coating Using A Mixed
+								Solvent System. <i>Adv. Mater.</i>, 25, 6442-6447.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Wu, K.-Y., Wu, T.-Y., Chang, S.-T., Hsu, C.-S., &amp; Wang,
+								C.-L. (2015). A Facile PDMS-Assisted Crystallization for the
+								Crystal-Engineering of C60 Single-Crystal Organic Field-Effect
+								Transistors. <i>Adv. Mater.</i>, 27, 4371-4376.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Zhao, H., Li, D., Dong, G., Duan, L., Liu, X., &amp; Wang, L.
+								(2014). Volatilize-Controlled Oriented Growth of the
+								Single-Crystal Layer for Organic Field-Effect Transistors.
+								<i>Langmuir</i>, 30, 12082-12088.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Pitsalidis, C., Kalfagiannis, N., Hastas, N. A., Karagiannidis,
+								P. G., Kapnopoulos, C., Ioakeimidis, A., &amp; Logothetidis, S.
+								(2014). High Performance Transistors Based on the Controlled
+								Growth of triisopropylsilylethynyl-Pentacene Crystals via
+								Non-Isotropic Solvent Evaporation. <i>RSC Adv.</i>, 4,
+								20804-20813.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Dickey, K. C., Anthony, J. E., &amp; Loo, Y. L. (2006).
+								Improving Organic Thin-Film Transistor Performance through
+								Solvent-Vapor Annealing of Solution-Processable
+								Triethylsilylethynyl Anthradithiophene. <i>Adv. Mater.</i>, 18,
+								1721-1726.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Khim, D., Baeg, K.-J., Kim, J., Kang, M., Lee, S.-H., Chen, Z.,
+								Facchetti, A., Kim, D.-Y., &amp; Noh, Y.-Y. (2013). High
+								Performance and Stable NACS Channel Organic Field-Effect
+								Transistors by Patterned Solvent-Vapor Annealing.
+								<i>ACS Appl. Mater. Interfaces</i>, 5, 10745-10752.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Ullah Khan, H., Li, R., Ren, Y., Chen, L., Payne, M. M.,
+								Bhansali, U. S., Smilgies, D.-M., Anthony, J. E., &amp;
+								Amassian, A. (2013). Solvent Vapor Annealing in the Molecular
+								Regime Drastically Improves Carrier Transport in Small-Molecule
+								Thin-Film Transistors. <i>ACS Appl. Mater. Interfaces</i>, 5,
+								2325-2330.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Bharti, D., Raghuwanshi, V., Varun, I., Mahato, A. K., &amp;
+								Tiwari, S. P. (2017). Method and Apparatus for Directional
+								Solvent Vapor Annealing for Crystal Alignment for Organic
+								Electronics. Provisional Patent Application No. 201711000446.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Sousa, P. C., Coelho, P. M., Oliveira, M. S. N., &amp; Alves, M.
+								A. (2009). Three-Dimensional Flow of Newtonian and Boger Fluids
+								in Square−Square Contractions.
+								<i>J. Non-Newtonian Fluid Mech.</i>, 160, 122-139.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Deegan, R. D., Bakajin, O., Dupont, T. F., Huber, G., Nagel, S.
+								R., &amp; Witten, T. A. (1997). Capillary Flow as the cause of
+								Ring Stains from Dried Liquid Drops. <i>Nature</i>, 389,
+								827-829.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Deegan, R. D., Bakajin, O., Dupont, T. F., Huber, G., Nagel, S.
+								R., &amp; Witten, T. A. (2000). Contact Line Deposits in an
+								Evaporating Drop. <i>Phys. Rev. E</i>, 62, 756-765.
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Naderi, P. &amp; Grau, G. (2022). Organic thin-film transistors
+								with inkjet-printed electrodes on hydrophobic Teflon-AF gate
+								dielectric with reversible surface properties.
+								<i>Org. Electron.</i>, 108.
+								https://doi.org/10.1016/j.orgel.2022.106612
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Kumar, B., Kaushik, B. K., &amp; Negi, Y. S. (2014). Organic
+								thin film transistors: Structures, models, materials,
+								fabrication, and applications: A review. <i>Polymer Reviews</i>,
+								54(1), 33-111. https://doi.org/10.1080/15583724.2013.848455
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Rajput, P. &amp; Singh, V. K. (2021). Characterization of
+								organic thin film transistors. <i>Mater Today Proc</i>.
+								https://doi.org/10.1016/J.MATPR.2021.04.541
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Bharti, D., Raghuwanshi, V., Varun, I., Mahato, A. K., &amp;
+								Tiwari, S. P. (2017). Directional Solvent Vapor Annealing for
+								Crystal Alignment in Solution-Processed Organic Semiconductors.
+								<i>ACS Applied Materials &amp; Interfaces</i>, 9(31),
+								26226-26233. https://doi.org/10.1021/acsami.7b03432
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Verma, A. &amp; Mittal, P. (2016). Characterization and Depth
+								Analysis of Organic Thin Film Transistor.
+								https://api.semanticscholar.org/CorpusID:33671351
+							</div>
+						</li>
+
+						<li>
+							<div class="number"></div>
+							<div class="text">
+								Tiwari, S. P., Knauer, K. A., Dindar, A., &amp; Kippelen, B.
+								(2012). Performance comparison of pentacene organic field-effect
+								transistors with SiO2 modified with octyltrichlorosilane or
+								octadecyltrichlorosilane. <i>Organic Electronics</i>, 13(1),
+								18-22. https://doi.org/10.1016/j.orgel.2011.09.017
+							</div>
+						</li>
+					</ol>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

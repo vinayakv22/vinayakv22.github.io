@@ -264,6 +264,13 @@
     }
 }
 
+/* @media screen and (min-width: 2000px) {
+    :root {
+        --multiplier : 2;
+    }
+    
+} */
+
 /* ------------------------------------------------------------------- 
  * ## grid variables
  * ------------------------------------------------------------------- */
@@ -279,6 +286,14 @@
     --width-narrow   : 1000px;
     --width-narrower : 800px;
     --width-grid-max : var(--width-max);
+    /* --width-full     : 100%;
+    --width-max      : 100%;
+    --width-wide     : 100%;
+    --width-wider    : 100%;
+    --width-widest   : 100%;
+    --width-narrow   : 1000px;
+    --width-narrower : 800px;
+    --width-grid-max : var(--width-max); */
 
     /* gutter
      */
@@ -289,7 +304,8 @@
  */
 @media screen and (max-width: 1200px) {
     :root {
-        --gutter : 1.6rem;
+        /* --gutter : 1.6rem; */
+        --gutter : 0rem;
     }
 }
 
@@ -548,6 +564,11 @@ pre {
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
     margin  : 0;
     padding : 0;
+}
+
+.project{
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 input[type="email"],
@@ -2932,6 +2953,16 @@ img.u-pull-left {
     left         : 0;
 }
 
+.s-header-project {
+    --box-shadow : 0 1px 1px rgba(0, 0, 0, 0.06), 0 2px 2px rgba(0, 0, 0, 0.06), 0 4px 4px rgba(0, 0, 0, 0.06), 0 8px 8px rgba(0, 0, 0, 0.06);
+    z-index      : 100;
+    width        : 100%;
+    position     : fixed;
+    top          : 0;
+    left         : 0;
+    nav-left: auto;
+}
+
 .header-mobile {
     z-index          : 101;
     display          : none;
@@ -2947,7 +2978,7 @@ img.u-pull-left {
 .mobile-home-link a,
 .main-nav a {
     display             : block;
-    font-size           : 10px;
+    font-size           : 12px;
     font-weight         : 400;
     line-height         : var(--header-height);
     text-transform      : uppercase;
@@ -2972,6 +3003,7 @@ img.u-pull-left {
     padding     : 0 .4rem;
     margin-left : 2.4rem;
 }
+
 
 .main-nav {
     padding : 0;
@@ -3007,6 +3039,80 @@ img.u-pull-left {
     border-right : none;
 }
 
+.main-nav a {
+    /* padding: 0 1rem; Reduce padding to make room for flex-grow elements */
+    margin: 0;       /* Remove any left and right margin */
+}
+
+.main-nav li {
+    /* flex: 0 1 auto; Ensure other items do not grow */
+    padding-left: 0;
+    border-right: 1px solid var(--color-border);
+} 
+
+/* .main-nav li:first-child,
+.main-nav li:last-child {
+    border-right: none;
+} */
+.main-nav-wrap {
+    /* max-width: 2560px; */
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    --gutter : 0;
+
+}
+
+.main-nav-wrap-project {
+    /* display: flex; */
+    /* max-width: 2560px; */
+    width: 100%;
+    /* min-width: 100%; */
+    min-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    --gutter : 0;
+
+}
+
+.flex-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    width: auto;
+    min-width: 100%;
+
+    /* height: var(--header-height);
+    padding: 0 var(--gutter); */
+}
+
+.flex-header-main {
+    display: flex;
+    flex-shrink: 1;
+    min-width: var(--width-wider);
+    width: auto;
+}
+
+.flex-header-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-grow:1;
+    flex-shrink: 1;
+    /* height: var(--header-height);
+    padding: 0 var(--gutter); */
+}
+
+.side-block{
+    height: var(--header-height); 
+    /* padding: 0 var(--gutter); */
+}
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
  * -------------------------------------------------------------------- */
@@ -3084,13 +3190,44 @@ img.u-pull-left {
  * responsive:
  * site-header
  * ------------------------------------------------------------------- */
-@media screen and (max-width: 1000px) {
+ @media screen and (max-width: 2600px) {
+
+    .flex-header-main {
+        min-width:85% ;
+    }
+
+    .main-nav-wrap {
+        width : 100%;
+    }
+}
+ @media screen and (max-width: 1800px) {
+
+    .flex-header-main {
+        min-width: 90%;
+    }
+
+    .main-nav-wrap {
+        width : 100%;
+    }
+}
+
+
+ @media screen and (max-width: 1200px) {
+
+    .flex-header-main {
+        min-width: 92%;
+    }
+
     .main-nav-wrap {
         width : 100%;
     }
 }
 
 @media screen and (max-width: 800px) {
+    .flex-header-main {
+        min-width: 100%;
+    }
+    
     .s-header {
         height : var(--header-height);
     }
@@ -3100,6 +3237,7 @@ img.u-pull-left {
     }
 
     .main-nav-wrap {
+        
         transform        : scaleY(0);
         transform-origin : center top;
         background-color : var(--color-body);
@@ -3181,12 +3319,24 @@ img.u-pull-left {
     }
 }
 
+/* ===================================================================
+ * # SCROLL BAR
+ * ------------------------------------------------------------------- */
+ ::-webkit-scrollbar {
+    /* background-color: #202324; */
+    width: 5px;
+    color: #aba499;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
 
 
 /* ===================================================================
  * # INTRO
- *
- *
  * ------------------------------------------------------------------- */
 
 .s-intro {
@@ -3411,6 +3561,13 @@ img.u-pull-left {
     object-fit     : cover;
     margin         : 0;
     vertical-align : bottom;
+}
+
+@media screen and (max-width: 1800px) and (min-width: 1200px) {
+    .about-info__pic {
+        margin-left: 4rem;
+    }
+    
 }
 
 .about-info__text {
@@ -3768,12 +3925,64 @@ img.u-pull-left {
 .folio-list__proj-link:hover {
     transform : scale(1.2);
 }
+/* ------------------------------------------------------------------- 
+ * ## modal iframe
+ * ------------------------------------------------------------------- */
+ /* .iframe-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-style: ;
+     width: 80%;
+    height: 90%;
+    scrollbar-color: #000000 #000000;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;    
+    z-index: 1000;
+} */
+
+.iframe-modal {
+    position: fixed;
+    top: 5%; /* Adjust the top position to create the pop-out effect */
+    left: 10%; /* Adjust the left position to center the iframe */
+    width: 80%;
+    height: 90%;
+    z-index: 1000;
+    /* background-color: white; Background color of the iframe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); /*Lighter shadow for pop-out effect */
+    border-radius: 5px;/* Optional: adds rounded corners*/
+    overflow: hidden; /* Enables scrolling if the content overflows */
+    scrollbar-color: #000000 #000000;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.117);
+}
+
+.modal-overlay {
+    background-image: initial;
+    background-color: rgba(46, 52, 53, 0.802);
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(216, 204, 204, 0.428); Semi-transparent dark overlay */
+    /* z-index: 1001; Lower than iframe-modal to ensure iframe is on top */
+}
+
+body.modal-open {
+    /* block scroll for mobile; */
+    /* causes underlying page to jump to top; */
+    /* prevents scrolling on all screens */
+    overflow: hidden;
+    position: fixed;
+}
+
+
 
 /* ------------------------------------------------------------------- 
  * ## modal popup
  * ------------------------------------------------------------------- */
 .modal-popup {
-    max-width        : 680px;
+    max-width        : 1200px;
     background-color : white;
     font-size        : calc(var(--text-size) * 0.9447);
     line-height      : var(--vspace-0_875);
@@ -4245,4 +4454,31 @@ img.u-pull-left {
     .ss-go-top {
         right : 6vw;
     }
+}
+
+ol.references {
+    list-style: none;
+    padding-left: 0; /* Remove default padding */
+    counter-reset: ref-counter; /* Initialize the counter */
+}
+
+ol.references li {
+    display: flex; /* Make each list item a flex container */
+    margin-bottom: 10px; /* Space between references */
+}
+
+ol.references li .number {
+    flex-shrink: 0; /* Prevent the number box from shrinking */
+    width: 3em; /* Fixed width for the number container */
+    text-align: right; /* Align the number to the right */
+    padding-right: 0.5em; /* Space between number and text */
+}
+
+ol.references li .number::before {
+    counter-increment: ref-counter; /* Increment the counter for each item */
+    content: "[" counter(ref-counter) "]"; /* Display the number with brackets */
+}
+
+ol.references li .text {
+    flex-grow: 1; /* Allow the text container to grow and fill available space */
 }
