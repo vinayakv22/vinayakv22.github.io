@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genre Classification</title>
+    <link rel="stylesheet" href="../../css/vendor.css" />
+		<link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div class="s-pagewrap">
+        <!-- ## site header 
+    ================================================== -->
+        <header class="s-header-project">
+            <div class="header-mobile">
+                <span class="mobile-home-link">
+                    <a href="#" onclick="parent.postMessage('closeModal', '*');"
+                        >&#8592; Go Back</a
+                    >
+                </span>
+                <!-- <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a> -->
+            </div>
+            <div class="row wide main-nav-wrap main-nav-wrap-project">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li>
+                            <a href="#" onclick="parent.postMessage('closeModal', '*');"
+                                >&#8592; Go Back</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        
+        
+
+        </header>
+        <!-- end s-header -->
+
+        <!-- ## main content
+    ================================================== -->
+        <main class="s-content project">
+            <section id="project-report">
+                <h1>Music Genre Classification</h1>
+
+                <h2>Abstract</h2>
+                <p>This paper showcases our experience with building a Music Genre Classifier. Our main aim was to create a machine learning model to classify between different genres of music. We used the GTZAN Genre Collection dataset. We processed the dataset to be useful in classification models. We used multiple classification models using different algorithms and compared their results.</p>
+            
+                <h2>Music Genre Classification</h2>
+            
+                <h3>INTRODUCTION</h3>
+                <p>Music can be classified into multiple genres of music. The genre of music can be identified by defining a generalized set of criteria with respect to each genre of music. This generalized criteria can be obtained by using certain features that an audio file bears. Features like tempo, beats, chroma values, spectral values.</p>
+            
+                <h3>Dataset</h3>
+                <p>The GTZAN genre collection dataset was collected in 2000-2001. It consists of 1000 audio files each having 30 seconds duration. There are 10 classes (10 music genres) each containing 100 audio tracks. Each track is in .wav format. It contains audio files of the following 10 genres:</p>
+                <ul>
+                    <li>Blues</li>
+                    <li>Classical</li>
+                    <li>Country</li>
+                    <li>Disco</li>
+                    <li>Hiphop</li>
+                    <li>Jazz</li>
+                    <li>Metal</li>
+                    <li>Pop</li>
+                    <li>Reggae</li>
+                    <li>Rock</li>
+                </ul>
+            
+                <h3>METHODOLOGY</h3>
+            
+                <h4>Overview</h4>
+                <p>We will be testing out the following classification models for the task:</p>
+                <ul>
+                    <li>Naïve Bayes Classifier</li>
+                    <li>Stochastic Gradient Descent Classifier</li>
+                    <li>K-Nearest Neighbors Classifier</li>
+                    <li>Decision Tree Classifier</li>
+                    <li>Random Forest Classifier</li>
+                    <li>Logistic Regression</li>
+                    <li>Multi-Layer Perceptron Classifier</li>
+                    <li>Support Vector Machine</li>
+                    <li>XGBoost Classifier</li>
+                    <li>Convolutional Neural Network (CNN)</li>
+                </ul>
+            
+                <h4>Dataset pre-processing and Visualization:</h4>
+                <p>Firstly the dataset was imported and segregated into a dictionary of audio files with key as the genre with the help of librosa library and then the audio files were visualized.</p>
+            
+                <img src="./Readme.md/by1qk3os.png" alt="Audio file visualization">
+            
+                <p>(Other Genres were visualized similarly)</p>
+            
+                <p>Then Spectrograms were plotted Firstly Normal Spectrograms then Mel Spectrograms</p>
+            
+                <h5>A Few Normal Spectrograms</h5>
+                <img src="./Readme.md/p0tglp33.png" alt="Normal Spectrograms">
+            
+                <h5>A Few Mel Spectrograms:</h5>
+                <img src="./Readme.md/j2iaqk5k.png" alt="Mel Spectrograms">
+            
+                <h5>Chroma Feature plots</h5>
+                <img src="./Readme.md/nejhb4mj.png" alt="Chroma Feature plots">
+            
+                <h5>Plots with Zero-Crossing Rates</h5>
+                <img src="./Readme.md/rb2r5jpn.png" alt="Zero-Crossing Rates plots">
+            
+                <h5>Plots with MFCC(mel-frequency cepstral coefficients):</h5>
+                <img src="./Readme.md/expjht1g.png" alt="MFCC plots">
+            
+                <p>Spectral centroid values and Spectral Rolloff values were extracted from the data.</p>
+            
+                <h5>Correlation Heatmap</h5>
+                <img src="./Readme.md/dnkhmelz.png" alt="Correlation Heatmap">
+            
+                <h5>Principle Component Analysis(PCA)</h5>
+                <p>For Dimensionality Reduction PCA was done on the data set to produce the following output</p>
+                <img src="./Readme.md/ilfrggwx.png" alt="PCA output 1">
+                <img src="./Readme.md/wkgqbn0a.png" alt="PCA output 2">
+            
+                <p>The Dataset was then normalized and put into train test split.</p>
+            
+                <h4>Implementation of Classification Models</h4>
+            
+                <ul>
+                    <li><strong>Naïve Bayes Classifier (Gaussian):</strong> It is used in classification and it assumes that features follow a normal distribution. It assumes that every pair of features being classified is independent of each other.
+                        <ul>
+                            <li>The model was declared with parameters with default values</li>
+                        </ul>
+                    </li>
+                    <li><strong>Stochastic Gradient Descent Classifier:</strong> It is used for discriminative learning of linear classifiers under convex loss functions. This estimator implements regularized linear models with stochastic gradient descent (SGD) learning.
+                        <ul>
+                            <li>The model was declared with parameters with default values except max_iter=5000</li>
+                        </ul>
+                    </li>
+                    <li><strong>K-Nearest Neighbors Classifier:</strong> The K-Nearest Neighbors algorithm, also known as is a non-parametric, supervised learning classifier, which uses proximity to make classifications or predictions about the grouping of an individual data point.
+                        <ul>
+                            <li>The model was declared with n_neighbors=10</li>
+                        </ul>
+                    </li>
+                    <li><strong>Decision Tree Classifier:</strong> The decision tree classifier creates the classification model by building a decision tree. Each node in the tree specifies a test on an attribute, each branch descending from that node corresponds to one of the possible values for that attribute.
+                        <ul>
+                            <li>The model was declared with default parameters</li>
+                        </ul>
+                    </li>
+                    <li><strong>Random Forest Classifier:</strong> A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.
+                        <ul>
+                            <li>The model was declared with n_estimators=1000 &amp; max_depth=10</li>
+                        </ul>
+                    </li>
+                    <li><strong>Logistic Regression:</strong> This model takes a linear equation as input and use logistic function and log odds to perform a binary classification task.
+                        <ul>
+                            <li>The model was declared with solver='lbfgs', multi_class='multinomial'</li>
+                        </ul>
+                    </li>
+                    <li><strong>Multi-Layer Perceptron Classifier:</strong> It implements a multi-layer perceptron (MLP) algorithm that trains using Backpropagation. Multi-layer Perceptron (MLP) is a supervised learning algorithm that learns a function by training on a dataset, where is the number of dimensions for input and is the number of dimensions for output.
+                        <ul>
+                            <li>The model was declared solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5000,10)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Support Vector Machine:</strong> It is a supervised learning algorithm. It creates the best line or decision boundary that can segregate n-dimensional space into classes.
+                        <ul>
+                            <li>Several models were declared with different parameters, with the kernels used being rbf, linear, sigmoid and poly. For rbf kernel, cache_size and gamma were varied, and for poly, the degree was varied.</li>
+                        </ul>
+                    </li>
+                    <li><strong>XGBoost Classifier:</strong> It is a decision-tree-based ensemble Machine Learning algorithm that uses a gradient boosting framework.
+                        <ul>
+                            <li>The model was declared with n_estimator=1000 and learning rate=0.05</li>
+                        </ul>
+                    </li>
+                    <li><strong>Convolutional Neural Network (CNN):</strong> It is a Deep Learning algorithm which can take in an input data, assign importance (learnable weights and biases) to various features in the data and be able to differentiate between different classes.
+                        <ul>
+                            <li>Multiple models were declared with all hidden layers' activation function as ReLu and output layers' activation function as 'softmax function'. The optimizers used were adam, sgd and rmsprop.</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+                <h2>Evaluation of Models:</h2>
+                <table>
+                    <tr>
+                        <th>Model</th>
+                        <th>Accuracy</th>
+                    </tr>
+                    <tr>
+                        <td>Naïve Bayes Classifier</td>
+                        <td>78.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Stochastic Gradient Descent Classifier</td>
+                        <td>87.2%</td>
+                    </tr>
+                    <tr>
+                        <td>K-Nearest Neighbors Classifier</td>
+                        <td>87.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Decision Tree Classifier</td>
+                        <td>86.9%</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest Classifier</td>
+                        <td>91.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>88.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-Layer Perceptron Classifier</td>
+                        <td>90.8%</td>
+                    </tr>
+                    <tr>
+                        <td>Support Vector Machine</td>
+                        <td>94.0%</td>
+                    </tr>
+                    <tr>
+                        <td>XGBoost Classifier</td>
+                        <td>92.7%</td>
+                    </tr>
+                    <tr>
+                        <td>Convolutional Neural Network (CNN)</td>
+                        <td>93.1%</td>
+                    </tr>
+                </table>
+            
+                <h2>Plots:</h2>
+            
+                <h4>Heatmap of the confusion matrix of the predictions of the SVM model</h4>
+                <img src="./Readme.md/xpyrderq.png" alt="SVM confusion matrix heatmap">
+            
+                <h4>Heatmap of the confusion matrix of the predictions of the XGBoost model</h4>
+                <img src="./Readme.md/lbw4w0sn.png" alt="XGBoost confusion matrix heatmap">
+            
+                <h4>Plot of loss, accuracy, validation loss and validation accuracy</h4>
+                <img src="./Readme.md/llahlb1a.png" alt="Loss and accuracy plot">
+            
+                <h2>Results and Analysis</h2>
+                <p>The results show that three classifiers outperformed others and have accuracy above 90% - the classifiers being Support Vector Machine Classifier, Convolutional Neural Network and XGBoost Classifier. Furthermore, the best performing model was the Support Vector Machine Classifier (SVC) after hyperparameter tuning with the parameters being C=200, gamma=3, degree=3, kernel='rbf', cache_size=200. The highest Accuracy achieved was 94%.</p>
+            
+                <h2>Extras</h2>
+                <p>A Recommender System was implemented. It finds similar songs to a given audio file and ranks them based on cosine similarity. Hence, on inputting an audio file, we would get the top 5 similar songs ranked from most similar to least similar.</p>
+            
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.ibm.com/topics/knn">https://www.ibm.com/topics/knn</a></li>
+                    <li><a href="https://www.sciencedirect.com/topics/computer-science/decision-tree-classifier">https://www.sciencedirect.com/topics/computer-science/decision-tree-classifier</a></li>
+                    <li><a href="https://towardsdatascience.com/how-is-logistic-regression-used-as-a-classification-algorithm-51eaf0d01a78">https://towardsdatascience.com/how-is-logistic-regression-used-as-a-classification-algorithm-51eaf0d01a78</a></li>
+                    <li><a href="https://scikit-learn.org/stable/modules">https://scikit-learn.org/stable/modules</a></li>
+                </ul>
+
+</section>
+        </main>
+        <!-- end s-content -->
+
+        <!-- ## site footer
+</body>
+</html>
