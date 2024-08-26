@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded System Project: Face Mask Detection</title>
+    <link rel="stylesheet" href="../../css/vendor.css" />
+		<link rel="stylesheet" href="../../css/styles.css" />
+		
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .centered-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="s-pagewrap">
+        <!-- ## site header 
+    ================================================== -->
+        <header class="s-header-project">
+            <div class="header-mobile">
+                <span class="mobile-home-link">
+                    <a href="#" onclick="parent.postMessage('closeModal', '*');"
+                        >&#8592; Go Back</a
+                    >
+                </span>
+                <!-- <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a> -->
+            </div>
+            <div class="row wide main-nav-wrap main-nav-wrap-project">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li>
+                            <a href="#" onclick="parent.postMessage('closeModal', '*');"
+                                >&#8592; Go Back</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        
+        
+
+        </header>
+        <!-- end s-header -->
+
+        <!-- ## main content
+    ================================================== -->
+        <main class="s-content project">
+            <section id="project-report">
+    <h1>Embedded System Project: Face Mask Detection</h1>
+
+    <h2>Problem Statement</h2>
+    <p>The problem of face mask detection in embedded systems involves detecting whether a person is wearing a mask or not, in real-time, with the help of cameras placed at various locations. The goal is to ensure that people follow safety protocols during pandemics like COVID-19 and prevent the spread of the disease.</p>
+
+    <h2>Possible Solutions with Deep Learning</h2>
+    <p>To come up with the possible solutions which can be implemented with Deep Learning, we present the most significant factors:</p>
+    <ol>
+        <li><strong>Transfer Learning:</strong> The approach is to use transfer learning, which involves using the pre-trained model such as ResNet and fine-tuning it for our specific task. In this approach, the pre-trained model is used as a starting point, and the final layers are replaced with new layers to fit the new problem. Transfer learning can help in reducing the time and computational cost of training a model from scratch.</li>
+        <li><strong>Data Augmentation:</strong> Another key approach is to use data augmentation techniques to generate more training data from existing images. This can help in improving the accuracy of the model by providing more varied and diverse data to train on.</li>
+        <li><strong>Real-time Detection:</strong> Real-time detection is another important aspect of face mask detection in embedded systems. This requires optimizing the model for fast and efficient inference on embedded devices.</li>
+    </ol>
+
+    <h2>Deep Learning for Face Mask Detection</h2>
+    <p>Deep learning as the state-of-the-art models are used for face mask detection due to its ability to automatically learn features from the raw data and identify complex patterns in the images. This allows deep learning models to effectively distinguish between images of people with and without masks, even when faced with variations in lighting, facial expressions, and other factors that can make the task challenging. Additionally, deep learning models can be fine-tuned on large datasets, making them highly adaptable to different scenarios and allowing for high accuracy in face mask detection.</p>
+    <p>We proceed with hyperparameter tuning for the deep learning architectures and utilize the pre-trained models and implement our own custom layer architecture to optimize the model for face mask detection.</p>
+
+    <h2>Choices for Hyperparameter Tuning</h2>
+    <p>The following hyperparameters will be used for the neural network implementations:</p>
+    <ul>
+        <li><strong>optimizer:</strong> Adam (uses adaptive learning rates for each parameter, converges quickly to a good solution and handles sparse gradients effectively)</li>
+        <li><strong>activation:</strong> ReLU (introduces non-linearity to the network, allowing it to learn more complex features and patterns in the data)</li>
+        <li><strong>layers:</strong> 10 Dense layers and 9 Dropout layers
+            <ul>
+                <li>Dense Layers: provide more non-linear mappings of the input data, helping the network learn more complex relationships between input and output</li>
+                <li>Dropout Layers: prevent overfitting by reducing the number of parameters</li>
+            </ul>
+        </li>
+        <li><strong>loss:</strong> SparseCategoricalCrossentropy (suitable for multi-class classification problems with integer labels)</li>
+        <li><strong>dropout rate:</strong> 0.2 (randomly drops out 20% of the neurons in the layer during training, helping prevent overfitting)</li>
+        <li><strong>learning rate:</strong> 0.00001 (kept low to avoid overshooting the model's optimal weights)</li>
+        <li><strong>patience:</strong> 10 (number of epochs to wait before stopping training if the validation loss has not improved)</li>
+    </ul>
+    <p>The final Dense layer has a softmax activation function and output dimensionality equal to the number of classes (2 in this case: with_mask and without_mask)</p>
+    <p>These hyperparameters were selected based on best practices and experimentation to achieve good performance on the face mask detection task.</p>
+
+    <h2>Model Implementations</h2>
+
+    <h3>ResNet-18 Implementation</h3>
+    <div class="image-container">
+        <img src="./Readme.md/xk5xlq2p.png" alt="Hyperparameter Tuning" style="width: 300px;">
+    </div>
+    <p>The ResNet-18 model is a deep neural network architecture designed for image classification tasks. It uses a ResNet18 base model pre-trained on ImageNet, which has shown to be effective in image classification tasks. The ResNet18 model is used to extract features from the input image.</p>
+    <p>The model is trained using the Adam optimizer and the Sparse Categorical Crossentropy loss function. The model's performance is evaluated using Sparse Categorical Accuracy metrics.</p>
+
+    <h3>ResNet-18 + CNN(Dense Layers) Implementation (our improved architecture)</h3>
+    <div class="image-container">
+        <img src="./Readme.md/gk4cd2bw.png" alt="ResNet-18 + CNN" style="width: 300px;">
+    </div>
+    <p>Using ResNet18 base as a backbone of detector architecture, several fully connected layers are added to learn a mapping from the extracted features to the classes. The fully connected layers consist of multiple hidden layers, each followed by a dropout layer to prevent overfitting. The final layer is a softmax layer that outputs the probability distribution over the classes.</p>
+    <p>This architecture is designed to improve accuracy in face mask detection or generally in classification over base ResNet-18.</p>
+
+    <h3>ResNet-50 + CNN(Dense Layers) Implementation (our improved architecture)</h3>
+    <div class="image-container">
+        <img src="./Readme.md/0451aud3.png" alt="ResNet-50 + CNN" style="width: 300px;">
+    </div>
+    <p>This neural network design uses transfer learning with ResNet50 as the base model and applies CNN headers on top of it for face mask detection. The model has the following specifications:</p>
+    <ul>
+        <li>The base model is configured to exclude the top layer and use global average pooling to reduce the number of parameters in the model</li>
+        <li>The addition of multiple Dense layers with dropout helps to fine-tune the model for the specific task of face mask detection</li>
+        <li>Early stopping technique helps prevent overfitting</li>
+    </ul>
+    <p>The actual accuracy of the model will depend on various factors such as the quality and quantity of the training data, hyperparameter tuning, and the specific implementation details.</p>
+
+    <h2>Evaluation of Detection Models</h2>
+
+    <h3>Train and Validation Loss Based on Models</h3>
+    <div class="image-container">
+        <img src="./Readme.md/2rsifnmp.png" alt="ResNet-18" style="width: 250px;">
+        <img src="./Readme.md/z2ffxyc0.png" alt="Detector over ResNet-18" style="width: 250px;">
+        <img src="./Readme.md/ikzfe4qu.png" alt="Detector over ResNet-50" style="width: 250px;">
+    </div>
+    <p class="centered-text"><strong>ResNet-18 | Detector over ResNet-18 | Detector over ResNet-50</strong></p>
+
+    <p>Based on the evaluation of the train and validation loss:</p>
+    <ul>
+        <li>ResNet18 performs worse compared to the other two models, due to its simpler architecture.</li>
+        <li>ResNet18 with CNN performs better than the ResNet model in terms of loss, which could be attributed to the added CNN headers.</li>
+        <li>ResNet50 with CNN performs the best in terms of loss, which is not surprising as ResNet50 is a deeper and more complex architecture.</li>
+    </ul>
+
+    <h3>Based on number of Parameters or layers</h3>
+    <div class="image-container">
+        <img src="./Readme.md/buh5zg0e.png" alt="1 Dropout layer removed" style="width: 250px;">
+        <img src="./Readme.md/eapyh5v2.png" alt="All dropout layers are kept" style="width: 250px;">
+        <img src="./Readme.md/zx42fgdp.png" alt="All dropout layers removed" style="width: 250px;">
+    </div>
+    <p class="centered-text"><strong>1 Dropout layer removed | All dropout layers are kept | All dropout layers removed</strong></p>
+
+    <ul>
+        <li>Removing a single dropout layer to increase the number of parameters, we can see that the validation curve is slightly above than train curve</li>
+        <li>The current parameters with no additional dropout layers and hence avoid overfitting. Therefore it outputs a good validation curve which is closer to train curve</li>
+        <li>By removing all dropout layers our the model is able to get more complex features since the number of parameters reached to millions and therefore the loss reaches zero in less epochs</li>
+    </ul>
+
+    <p>The removal of all dropout layers from the model may result in overfitting and requires a lot more time. The accuracy and losses presented may depend on data distribution, thus we proceed with keeping all the dropout layers to obtain the best results.</p>
+
+    <h3>Accuracy</h3>
+    <p>To evaluate the models' performance, sparse categorical accuracy, confusion matrix, and classification table could be used.</p>
+
+    <div class="image-container">
+        <img src="./Readme.md/c13zecnk.png" alt="Detector with ResNet-18 backbone" style="width: 400px;">
+        <img src="./Readme.md/jban1koh.png" alt="Detector with ResNet-50 backbone" style="width: 400px;">
+    </div>
+    <p class="centered-text"><strong>Detector with ResNet-18 backbone | Detector with ResNet-50 backbone</strong></p>
+
+    <h4>ResNet-18 + CNN (our best model)</h4>
+    <div class="image-container">
+        <img src="./Readme.md/2xesqpsj.png" alt="Confusion Matrix" style="width: 380px;">
+        <img src="./Readme.md/5e10rriu.png" alt="Classification Table" style="width: 420px;">
+    </div>
+    <p class="centered-text"><strong>Confusion Matrix | Classification Table</strong></p>
+
+    <p>Sparse categorical accuracy measures the proportion of correctly predicted class labels out of all predictions, and it is a common metric for multi-class classification tasks like face mask detection. A confusion matrix shows the number of correct and incorrect predictions for each class, and it could provide insights into the models' strengths and weaknesses in classifying different classes.</p>
+
+    <p>Based on the above discussion, ResNet18 with CNN could potentially outperform ResNet18 and ResNet50 due to its enhanced representation power, while ResNet50 might suffer from overfitting and longer training time.</p>
+
+    <h2>Results</h2>
+    <table>
+        <tr>
+            <td width="60%">
+                <p><strong>Predicted Results of Detector based on CNN architecture build with a backbone over ResNet18</strong></p>
+                <p>The face mask detection model designed using ResNet18 with CNN architecture was able to successfully predict whether a person is wearing a mask or not. The model achieved high accuracy on both training and validation sets, with the best performance obtained using ResNet18 with CNN architecture, which outperformed ResNet18 and ResNet50 with CNN architectures in terms of loss and sparse categorical accuracy.</p>
+            </td>
+            <td width="40%" align="center">
+                <img src="./Readme.md/vlqnzixg.png" alt="Predicted Results" style="width: 300px;">
+            </td>
+        </tr>
+    </table>
+
+    <h2>Mobile Application</h2>
+    <p>A Flutter UI was developed to integrate the trained model with a mobile application, providing an easy-to-use interface for the end-users. The successful implementation of the face mask detection model using deep learning and the integration with a mobile application signifies the robustness and lightweight nature of the developed model.</p>
+
+    <div class="image-container">
+        <img src="./Readme.md/face_mask_detection_app.jpg" alt="Face Mask Detection App" style="width: 250px;">
+        <img src="./Readme.md/djckvl2f.png" alt="App Screenshot 1" style="width: 250px;">
+        <img src="./Readme.md/2vedxyno.png" alt="App Screenshot 2" style="width: 250px;">
+    </div>
+    <p class="centered-text">Screenshots illustrating the functionality and user interface of the face mask detection application.</p>
+
+    </section>
+        </main>
+        <!-- end s-content -->
+
+        <!-- ## site footer
+</body>
+</html>
