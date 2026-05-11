@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f2f5f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app-root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top, rgba(61, 129, 202, 0.18), transparent 30%),
+    linear-gradient(180deg, #f7fbff 0%, #edf4fb 100%);
+}
+
+.app-card {
+  max-width: 560px;
+  padding: 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 60px rgba(44, 76, 112, 0.14);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #3d81ca;
+}
+
+.app-card h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+  color: #16314d;
+}
+
+.app-card p:last-child {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #45607d;
+}
