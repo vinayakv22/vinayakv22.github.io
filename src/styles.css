@@ -39,8 +39,8 @@ a {
 }
 
 .site {
-  --contact-height: 18vh;
-  --contact-height: 18dvh;
+  --contact-height: clamp(138px, 18vh, 208px);
+  --contact-height: clamp(138px, 18dvh, 208px);
   height: calc(100vh + var(--contact-height));
   height: calc(100dvh + var(--contact-height));
   overflow: hidden;
@@ -52,7 +52,7 @@ a {
   display: flex;
   align-items: center;
   padding: clamp(18px, 2.2vw, 30px) clamp(40px, 7.1vw, 146px);
-  background: linear-gradient(180deg, #193856 0%, #11273f 100%);
+  background: linear-gradient(181deg, #0076bb 0%, #2b6bb2 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   overflow: hidden;
 }
@@ -68,7 +68,7 @@ a {
   min-height: 100dvh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(300px, 1.08fr);
   align-items: center;
   padding: clamp(28px, 5.6vw, 76px) clamp(40px, 7.1vw, 146px);
   background: linear-gradient(180deg, #3d81ca 0%, #4389d1 50%, #559adb 100%);
@@ -97,10 +97,10 @@ a {
   max-width: 430px;
   font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
   color: #ffffff;
-  font-size: 65.466px;
+  font-size: clamp(2.55rem, 4.68vw, 65.466px);
   font-weight: 400;
   font-style: normal;
-  line-height: 94px;
+  line-height: clamp(3.25rem, 6.72vw, 94px);
   letter-spacing: 0;
   text-transform: none;
 }
@@ -115,19 +115,19 @@ a {
   margin: clamp(30px, 5vh, 54px) 0 0;
   font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
   color: #ffffff;
-  font-size: 18.6667px;
+  font-size: clamp(0.98rem, 1.34vw, 18.6667px);
   font-weight: 400;
   font-style: normal;
-  line-height: 30px;
+  line-height: 1.62;
   letter-spacing: 0;
   text-transform: none;
 }
 
 .hero-art {
   position: absolute;
-  inset: auto -3.2vw 0 auto;
+  inset: auto clamp(-70px, -3.2vw, -24px) 0 auto;
   z-index: 1;
-  width: min(49.5vw, 1014px);
+  width: clamp(420px, 49.5vw, 1014px);
   height: min(100vh, 1115px);
   height: min(100dvh, 1115px);
   display: flex;
@@ -141,7 +141,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: right bottom;
+  object-position: left bottom;
   filter: drop-shadow(0 28px 36px rgba(22, 48, 80, 0.16));
   transform: translateY(clamp(44px, 8.4vh, 94px)) scaleX(-1);
 }
@@ -165,12 +165,11 @@ a {
 .contact-link {
   position: absolute;
   right: clamp(70px, 7.1vw, 146px);
-  bottom: clamp(70px, 10vh, 112px);
+  bottom: clamp(46px, 10vh, 112px);
   z-index: 3;
-  width: min(30vw, 614px);
-  min-width: 260px;
+  width: clamp(230px, 30vw, 614px);
   display: grid;
-  gap: 20px;
+  gap: clamp(13px, 1.45vw, 20px);
   align-items: center;
   justify-items: end;
   border: 0;
@@ -221,11 +220,11 @@ a {
 .contact-panel {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(160px, 0.78fr) minmax(0, 3.22fr);
-  gap: clamp(18px, 2vw, 34px);
+  grid-template-columns: minmax(148px, 0.72fr) minmax(0, 3.28fr);
+  gap: clamp(16px, 2.4vw, 40px);
   align-items: center;
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(clamp(18px, 3vh, 34px));
   transition:
     opacity 520ms ease 180ms,
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 160ms;
@@ -260,7 +259,7 @@ a {
 .contact-actions {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2.4vw, 42px);
+  gap: clamp(12px, 2vw, 34px);
   align-items: center;
 }
 
@@ -268,12 +267,13 @@ a {
   min-width: 0;
   width: 100%;
   display: grid;
-  gap: 8px;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
-  padding: 8px clamp(10px, 1vw, 14px);
+  padding: 8px clamp(8px, 0.9vw, 14px);
   font-family: Arial, Helvetica, sans-serif;
   color: #ffffff;
-  font-size: clamp(0.9rem, 1vw, 1.02rem);
+  font-size: clamp(0.82rem, 0.9vw, 1.02rem);
   line-height: 1.18;
   text-decoration: none;
   border-left: 1px solid rgba(255, 255, 255, 0.14);
@@ -297,7 +297,7 @@ a {
 }
 
 .contact-actions small {
-  font-size: 0.68rem;
+  font-size: clamp(0.58rem, 0.58vw, 0.68rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.12em;
@@ -319,38 +319,80 @@ a {
   background: rgba(255, 255, 255, 0.06);
 }
 
+@media (max-width: 1180px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
+  }
+
+  .hero-copy {
+    max-width: 390px;
+  }
+
+  .hero h1 {
+    max-width: 390px;
+  }
+
+  .intro {
+    max-width: 370px;
+  }
+
+  .hero-art {
+    width: clamp(470px, 57vw, 660px);
+    right: clamp(-72px, -5vw, -30px);
+    transform: translateY(3vh) scale(1.06);
+  }
+
+  .contact-section {
+    padding-inline: clamp(32px, 5.4vw, 64px);
+  }
+
+  .contact-link {
+    right: clamp(32px, 5.4vw, 64px);
+  }
+
+  .contact-actions {
+    gap: 10px;
+  }
+}
+
 @media (max-width: 860px) {
+  .site {
+    --contact-height: clamp(210px, 28vh, 268px);
+    --contact-height: clamp(210px, 28dvh, 268px);
+  }
+
   .hero {
     grid-template-columns: 1fr;
     align-items: start;
-    padding: 28px 24px 0;
+    padding: clamp(22px, 4.6vw, 34px) clamp(22px, 5vw, 36px) 0;
   }
 
   .hero-copy {
     max-width: 100%;
-    padding-top: 28px;
+    padding-top: clamp(16px, 3vh, 28px);
   }
 
   .hero h1 {
-    max-width: 420px;
+    max-width: min(500px, 78vw);
   }
 
   .intro {
-    max-width: 330px;
+    max-width: min(430px, 72vw);
+    margin-top: clamp(20px, 3.6vh, 32px);
   }
 
   .hero-art {
-    width: min(96vw, 520px);
-    height: min(58vh, 520px);
-    height: min(58dvh, 520px);
-    right: -18vw;
+    width: min(104vw, 640px);
+    height: min(61vh, 620px);
+    height: min(61dvh, 620px);
+    right: clamp(10px, 2vw, 18px);
+    transform: translateY(3vh) scale(1.04);
   }
 
   .contact-link {
-    right: 24px;
-    bottom: 28px;
-    width: min(58vw, 320px);
-    min-width: 190px;
+    right: clamp(22px, 5vw, 36px);
+    bottom: clamp(24px, 5.4vh, 44px);
+    width: clamp(190px, 52vw, 320px);
     gap: 14px;
     font-size: 1.05rem;
   }
@@ -359,75 +401,141 @@ a {
     padding: 20px 24px;
   }
 
-  .site {
-    --contact-height: 28vh;
-    --contact-height: 28dvh;
-  }
-
   .contact-panel {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .contact-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 18px;
+    gap: 10px;
+  }
+
+  .contact-actions a {
+    padding-block: 7px;
   }
 }
 
 @media (max-width: 520px) {
+  .site {
+    --contact-height: clamp(248px, 34vh, 306px);
+    --contact-height: clamp(248px, 34dvh, 306px);
+  }
+
   .hero {
-    padding-inline: 20px;
+    padding-inline: clamp(18px, 5vw, 22px);
   }
 
   .eyebrow {
-    margin-bottom: 18px;
-    font-size: 0.95rem;
+    margin-bottom: clamp(14px, 3vh, 18px);
+    font-size: clamp(0.78rem, 3.6vw, 0.95rem);
   }
 
   .hero h1 {
-    max-width: 320px;
+    max-width: min(340px, 86vw);
+    font-size: clamp(2.06rem, 10.2vw, 2.62rem);
+    line-height: 1.17;
   }
 
   .intro {
-    max-width: 285px;
-    margin-top: 22px;
+    max-width: min(330px, 82vw);
+    margin-top: clamp(16px, 3vh, 22px);
+    font-size: clamp(0.88rem, 4vw, 1rem);
+    line-height: 1.5;
   }
 
   .hero-art {
-    width: 118vw;
-    height: 48vh;
-    height: 48dvh;
-    right: -38vw;
+    width: min(136vw, 560px);
+    height: min(51vh, 470px);
+    height: min(51dvh, 470px);
+    right: clamp(6px, 2vw, 9px);
+    transform: translateY(2.5vh) scale(1.03);
   }
 
   .contact-section {
-    padding-inline: 20px;
-  }
-
-  .site {
-    --contact-height: 34vh;
-    --contact-height: 34dvh;
+    padding: 16px clamp(16px, 5vw, 20px);
   }
 
   .contact-actions {
     display: grid;
-    gap: 12px;
+    gap: 8px;
     grid-template-columns: 1fr;
   }
 
   .contact-actions a {
-    gap: 10px;
-    padding: 4px 0 4px 10px;
+    gap: 9px;
+    padding: 5px 0 5px 10px;
+    font-size: clamp(0.78rem, 3.45vw, 0.9rem);
   }
 
   .contact-actions span {
-    white-space: normal;
+    white-space: nowrap;
   }
 
   .contact-icon {
     width: 30px;
     height: 30px;
     padding: 6px;
+  }
+}
+
+@media (max-width: 520px) and (max-height: 780px) {
+  .hero-art {
+    height: min(54vh, 470px);
+    height: min(54dvh, 470px);
+    transform: translateY(4vh) scale(1.03);
+  }
+
+  .contact-link {
+    bottom: clamp(18px, 3vh, 24px);
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: clamp(1.88rem, 9.6vw, 2.2rem);
+  }
+
+  .intro {
+    max-width: 78vw;
+  }
+
+  .contact-link {
+    width: clamp(172px, 58vw, 220px);
+  }
+
+  .contact-actions a {
+    font-size: 0.76rem;
+  }
+
+  .contact-icon {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+  }
+}
+
+@media (max-height: 620px) and (min-width: 861px) {
+  .site {
+    --contact-height: clamp(120px, 20vh, 152px);
+    --contact-height: clamp(120px, 20dvh, 152px);
+  }
+
+  .hero-copy {
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 4.3vw, 3.5rem);
+    line-height: 1.16;
+  }
+
+  .intro {
+    margin-top: 20px;
+    line-height: 1.45;
+  }
+
+  .contact-link {
+    bottom: 34px;
   }
 }
