@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const portraitSrc = "/_assets/media/7fe967750b13d050d7aa2de220e03bf4.png";
 const lightSrc = "/_assets/media/5a72d77557dfaaecd7497f87fd5c706b.png";
@@ -33,6 +33,7 @@ function ContactIcon({ type }) {
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const scrollAnimationRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.classList.toggle("contact-open", isContactOpen);
@@ -40,14 +41,41 @@ export default function App() {
 
     if (isContactOpen) {
       requestAnimationFrame(() => {
-        document.getElementById("contact")?.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-        });
+        const scrollRoot = document.getElementById("app-root");
+        if (!scrollRoot) {
+          return;
+        }
+
+        if (scrollAnimationRef.current) {
+          cancelAnimationFrame(scrollAnimationRef.current);
+        }
+
+        const start = scrollRoot.scrollTop;
+        const end = scrollRoot.scrollHeight - scrollRoot.clientHeight;
+        const distance = end - start;
+        const duration = 920;
+        const startedAt = performance.now();
+
+        const easeOutCubic = (progress) => 1 - Math.pow(1 - progress, 3);
+
+        const animate = (now) => {
+          const progress = Math.min((now - startedAt) / duration, 1);
+          scrollRoot.scrollTop = start + distance * easeOutCubic(progress);
+
+          if (progress < 1) {
+            scrollAnimationRef.current = requestAnimationFrame(animate);
+          }
+        };
+
+        scrollAnimationRef.current = requestAnimationFrame(animate);
       });
     }
 
     return () => {
+      if (scrollAnimationRef.current) {
+        cancelAnimationFrame(scrollAnimationRef.current);
+      }
+
       document.documentElement.classList.remove("contact-open");
       document.body.classList.remove("contact-open");
     };

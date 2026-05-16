@@ -54,6 +54,7 @@ a {
   padding: clamp(18px, 2.2vw, 30px) clamp(40px, 7.1vw, 146px);
   background: linear-gradient(180deg, #193856 0%, #11273f 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.16);
+  overflow: hidden;
 }
 
 .hero {
@@ -223,6 +224,16 @@ a {
   grid-template-columns: minmax(160px, 0.78fr) minmax(0, 3.22fr);
   gap: clamp(18px, 2vw, 34px);
   align-items: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 520ms ease 180ms,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 160ms;
+}
+
+.site.is-contact-open .contact-panel {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-heading {
