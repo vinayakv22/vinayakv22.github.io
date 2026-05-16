@@ -1,128 +1,121 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-const MANAGED_ATTR = "data-canva-managed";
+const portraitSrc = "/_assets/media/7fe967750b13d050d7aa2de220e03bf4.png";
+const lightSrc = "/_assets/media/5a72d77557dfaaecd7497f87fd5c706b.png";
 
-function cloneNodeWithAttributes(node) {
-  const element = document.createElement(node.tagName.toLowerCase());
+function ContactIcon({ type }) {
+  const paths = {
+    mail: (
+      <>
+        <path d="M4.75 6.75h14.5v10.5H4.75z" />
+        <path d="m5.25 7.25 6.75 5.5 6.75-5.5" />
+      </>
+    ),
+    phone: (
+      <path d="M8.25 5.25 10 9l-1.5 1.15a9.2 9.2 0 0 0 4.35 4.35L14 13l3.75 1.75-.9 3a1.25 1.25 0 0 1-1.35.88C9.85 17.92 6.08 14.15 5.37 8.5a1.25 1.25 0 0 1 .88-1.35z" />
+    ),
+    linkedin: (
+      <>
+        <path d="M6.5 9.5v7" />
+        <path d="M10.25 16.5v-3.75a3.25 3.25 0 0 1 6.5 0v3.75" />
+        <path d="M10.25 9.5v7" />
+        <path d="M6.5 6.25v.05" />
+      </>
+    ),
+  };
 
-  for (const { name, value } of [...node.attributes]) {
-    if (name === "nonce") {
-      continue;
-    }
-
-    element.setAttribute(name, value);
-  }
-
-  if (node.textContent) {
-    element.textContent = node.textContent;
-  }
-
-  element.setAttribute(MANAGED_ATTR, "true");
-  return element;
-}
-
-function removeManagedNodes() {
-  document.querySelectorAll(`[${MANAGED_ATTR}="true"]`).forEach((node) => {
-    node.remove();
-  });
+  return (
+    <svg className="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+      {paths[type]}
+    </svg>
+  );
 }
 
 export default function App() {
-  const mountRef = useRef(null);
-  const [status, setStatus] = useState("loading");
-  const [error, setError] = useState("");
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
+    document.documentElement.classList.toggle("contact-open", isContactOpen);
+    document.body.classList.toggle("contact-open", isContactOpen);
 
-    async function loadCanvaSite() {
-      try {
-        const response = await fetch("/canva-export.html", { cache: "no-store" });
-        if (!response.ok) {
-          throw new Error(`Failed to load Canva export (${response.status})`);
-        }
-
-        const html = await response.text();
-        if (cancelled) {
-          return;
-        }
-
-        const parsed = new DOMParser().parseFromString(html, "text/html");
-        const mountNode = mountRef.current;
-
-        if (!mountNode) {
-          return;
-        }
-
-        removeManagedNodes();
-        mountNode.innerHTML = "";
-
-        document.documentElement.lang = parsed.documentElement.lang || "en";
-        document.documentElement.dir = parsed.documentElement.dir || "ltr";
-        document.documentElement.className = parsed.documentElement.className;
-
-        const headNodes = [...parsed.head.children].filter((node) => {
-          if (node.tagName.toLowerCase() === "base") {
-            return false;
-          }
-
-          if (
-            node.tagName.toLowerCase() === "script" &&
-            node.textContent.includes("window.location.protocol===")
-          ) {
-            return false;
-          }
-
-          return true;
+    if (isContactOpen) {
+      requestAnimationFrame(() => {
+        document.getElementById("contact")?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
         });
-
-        headNodes.forEach((node) => {
-          document.head.appendChild(cloneNodeWithAttributes(node));
-        });
-
-        const bodyNodes = [...parsed.body.childNodes];
-        bodyNodes.forEach((node) => {
-          if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) {
-            return;
-          }
-
-          if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() === "script") {
-            mountNode.appendChild(cloneNodeWithAttributes(node));
-            return;
-          }
-
-          mountNode.appendChild(node.cloneNode(true));
-        });
-
-        setStatus("ready");
-      } catch (loadError) {
-        if (!cancelled) {
-          setStatus("error");
-          setError(loadError instanceof Error ? loadError.message : "Unknown error");
-        }
-      }
+      });
     }
 
-    loadCanvaSite();
-
     return () => {
-      cancelled = true;
-      removeManagedNodes();
+      document.documentElement.classList.remove("contact-open");
+      document.body.classList.remove("contact-open");
     };
-  }, []);
+  }, [isContactOpen]);
 
   return (
-    <>
-      {status !== "ready" && (
-        <div className="app-shell">
-          <div className="app-card">
-            <p className="eyebrow">React Refactor</p>
-            <h1>{status === "error" ? "Could not load the Canva export." : "Loading portfolio..."}</h1>
-            <p>{status === "error" ? error : "Rebuilding the original site inside the React app."}</p>
+    <main className={`site${isContactOpen ? " is-contact-open" : ""}`}>
+      <section className="hero" aria-labelledby="hero-title">
+        <img className="hero-light hero-light-top" src={lightSrc} alt="" aria-hidden="true" />
+
+        <div className="hero-copy">
+          <p className="eyebrow">Vinayak Verma</p>
+          <h1 id="hero-title">
+            Building the bridge from AI models to <em>silicon</em>.
+          </h1>
+          <p className="intro">
+            I'm building NexSilica to turn trained AI models into optimized custom silicon. My work
+            spans semiconductor research, chip design, and software automation.
+          </p>
+        </div>
+
+        <div className="hero-art" aria-hidden="true">
+          <img className="portrait" src={portraitSrc} alt="" />
+        </div>
+
+        <button
+          className="contact-link"
+          type="button"
+          aria-expanded={isContactOpen}
+          aria-controls="contact"
+          onClick={() => setIsContactOpen(true)}
+        >
+          <span />
+          Contact Me
+          <span />
+        </button>
+      </section>
+      <section id="contact" className="contact-section" aria-label="Contact details">
+        <div className="contact-panel">
+          <div className="contact-heading">
+            <p className="contact-kicker">Reach me directly</p>
+            <p className="contact-note">Email, call, or connect on LinkedIn.</p>
+          </div>
+          <div className="contact-actions">
+            <a href="mailto:vinayakverma@nexsilica.com">
+              <ContactIcon type="mail" />
+              <span>
+                <small>Email</small>
+                vinayakverma@nexsilica.com
+              </span>
+            </a>
+            <a href="tel:+918527090612">
+              <ContactIcon type="phone" />
+              <span>
+                <small>Phone</small>
+                +91 8527090612
+              </span>
+            </a>
+            <a href="https://www.linkedin.com/in/vinayakverma/">
+              <ContactIcon type="linkedin" />
+              <span>
+                <small>LinkedIn</small>
+                vinayakverma
+              </span>
+            </a>
           </div>
         </div>
-      )}
-      <div ref={mountRef} />
-    </>
+      </section>
+    </main>
   );
 }
