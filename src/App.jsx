@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-const portraitSrc = "/_assets/media/7fe967750b13d050d7aa2de220e03bf4.png";
-const lightSrc = "/_assets/media/5a72d77557dfaaecd7497f87fd5c706b.png";
+const portraitSrc = "/_assets/media/portrait.webp";
+const lightSrc = "/_assets/media/hero-light-720.webp";
 
 function ContactIcon({ type }) {
   const paths = {
@@ -84,7 +84,16 @@ export default function App() {
   return (
     <main className={`site${isContactOpen ? " is-contact-open" : ""}`}>
       <section className="hero" aria-labelledby="hero-title">
-        <img className="hero-light hero-light-top" src={lightSrc} alt="" aria-hidden="true" />
+        <img
+          className="hero-light hero-light-top"
+          src={lightSrc}
+          alt=""
+          aria-hidden="true"
+          width="720"
+          height="681"
+          decoding="async"
+          fetchPriority="low"
+        />
 
         <div className="hero-copy">
           <p className="eyebrow">Vinayak Verma</p>
@@ -98,7 +107,15 @@ export default function App() {
         </div>
 
         <div className="hero-art" aria-hidden="true">
-          <img className="portrait" src={portraitSrc} alt="" />
+          <img
+            className="portrait"
+            src={portraitSrc}
+            alt=""
+            width="1065"
+            height="1477"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
 
         <button
@@ -106,11 +123,11 @@ export default function App() {
           type="button"
           aria-expanded={isContactOpen}
           aria-controls="contact"
-          onClick={() => setIsContactOpen(true)}
+          onClick={() => setIsContactOpen((isOpen) => !isOpen)}
         >
-          <span />
-          Contact Me
-          <span />
+          <span className="contact-rule" />
+          <span className="contact-label">Contact Me</span>
+          <span className="contact-rule" />
         </button>
       </section>
       <section id="contact" className="contact-section" aria-label="Contact details">
