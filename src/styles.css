@@ -395,7 +395,7 @@ a {
 
   .hero-art {
     width: min(104vw, 640px);
-    right: min(104vw, 640px);
+    right: clamp(10px, 2vw, 18px);
     transform: translateY(3vh) scale(1.04);
     height: min(70dvh, 640px);
   }
@@ -466,7 +466,7 @@ a {
   .hero-art {
     width: min(136vw, 560px);
     height: min(56dvh, 520px);
-    right: min(136vw, 560px);
+    right: clamp(6px, 2vw, 9px);
     transform: translateY(2.5vh) scale(1.03);
   }
 
